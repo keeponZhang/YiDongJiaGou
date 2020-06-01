@@ -17,6 +17,7 @@ public interface ModelLoader<Model, Data> {
 
     class LoadData<Data> {
         public final Key sourceKey;
+        //负责加载数据
         public final DataFetcher<Data> fetcher;
 
         public LoadData(Key sourceKey, DataFetcher<Data> fetcher) {
@@ -25,7 +26,7 @@ public interface ModelLoader<Model, Data> {
         }
 
     }
-
+    //构造一个LoadData
     LoadData<Data> buildLoadData(Model model);
 
     boolean handles(Model model);

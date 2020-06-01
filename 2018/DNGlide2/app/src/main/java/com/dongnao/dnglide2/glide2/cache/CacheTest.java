@@ -14,6 +14,7 @@ public class CacheTest implements Resource.ResourceListener, MemoryCache.Resourc
 
     LruMemoryCache lruMemoryCache;
     ActiveResource activeResource;
+    //复用池只能利用内存，不能利用图片
     BitmapPool bitmapPool;
 
     public Resource test(Key key) {
