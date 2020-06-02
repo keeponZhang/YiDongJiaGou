@@ -36,6 +36,7 @@ public class FileLoader<Data> implements ModelLoader<File, Data> {
         @NonNull
         @Override
         public ModelLoader<File, InputStream> build(ModelLoaderRegistry modelLoaderRegistry) {
+            //所以这里去modelLoaderRegistry获取loader传的也是Uri和InputStream
             return new FileLoader(modelLoaderRegistry.build(Uri.class, InputStream
                     .class));
         }

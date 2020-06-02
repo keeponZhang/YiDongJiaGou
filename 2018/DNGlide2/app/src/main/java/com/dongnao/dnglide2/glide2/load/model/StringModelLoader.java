@@ -24,6 +24,7 @@ public class StringModelLoader implements ModelLoader<String, InputStream> {
 
     @Override
     public LoadData<InputStream> buildData(String model) {
+        //这里把String封装成Uri
         Uri uri;
         if (model.startsWith("/")) {
             uri = Uri.fromFile(new File(model));

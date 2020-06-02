@@ -27,6 +27,7 @@ public class LoaderTest {
         loaderRegistry.add(String.class, InputStream.class, new StringModelLoader.StreamFactory());
         loaderRegistry.add(Uri.class, InputStream.class, new FileUriLoader.Factory(context.getContentResolver()));
         loaderRegistry.add(Uri.class, InputStream.class, new HttpUriLoader.Factory());
+        //其实File跟Uri可以相互转换的，所以后面FileLoader里面持有一个UriLoader，达到复用效果
         loaderRegistry.add(File.class, InputStream.class, new FileLoader.Factory());
 
 //        context.getAssets().open("/a/b.png");

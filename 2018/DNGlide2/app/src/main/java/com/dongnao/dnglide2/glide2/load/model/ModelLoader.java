@@ -10,6 +10,8 @@ import com.dongnao.dnglide2.glide2.load.model.data.DataFetcher;
 public interface ModelLoader<Model, Data> {
 
     interface ModelLoaderFactory<Model, Data> {
+        //这里传参ModelLoaderRegistry是因为，modelLoader都在ModelLoaderRegistry统一管理
+        //并不是每个ModelLoaderFactory都创造出不一样的
         ModelLoader<Model, Data> build(ModelLoaderRegistry registry);
     }
 
