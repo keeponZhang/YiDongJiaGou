@@ -39,6 +39,7 @@ public class StringModelLoader implements ModelLoader<String, InputStream> {
 
         @Override
         public ModelLoader<String, InputStream> build(ModelLoaderRegistry registry) {
+            //这里会匹配都两个modelLoader
             return new StringModelLoader(registry.build(Uri.class, InputStream.class));
         }
     }

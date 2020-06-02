@@ -32,6 +32,7 @@ public class LoaderTest {
 
 //        context.getAssets().open("/a/b.png");
 
+        //这里会调用StringModelLoader.StreamFactory的build方法
         List<ModelLoader<String, ?>> modelLoaders = loaderRegistry.getModelLoaders(String.class);
         ModelLoader<String, ?> modelLoader = modelLoaders.get(0);
         //HttpUriFetcher
