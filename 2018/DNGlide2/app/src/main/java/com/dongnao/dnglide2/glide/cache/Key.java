@@ -10,6 +10,7 @@ import java.security.MessageDigest;
 
 public interface Key {
 
+    //主要是为了磁盘缓存用
     void updateDiskCacheKey(MessageDigest messageDigest);
 
     byte[] getKeyBytes();

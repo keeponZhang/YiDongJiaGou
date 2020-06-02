@@ -15,6 +15,7 @@ import java.io.InputStream;
 
 public class HttpUriLoader implements ModelLoader<Uri, InputStream> {
 
+    //LoadData里面的fetcher才是真正去请求的，key作缓存方法有用处
     @Override
     public LoadData<InputStream> buildLoadData(Uri uri) {
         return new LoadData<>(new ObjectKey(uri), new HttpUriFetcher(uri));

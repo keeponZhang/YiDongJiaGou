@@ -23,8 +23,10 @@ public class StringLoader<Data> implements ModelLoader<String, Data> {
 
     @Override
     public LoadData<Data> buildLoadData(String model) {
+        //本地文件和在线地址都是uri
         Uri uri;
         if (model.startsWith("/")) {
+            //这需要包装一层
             uri = Uri.fromFile(new File(model));
         } else {
             uri = Uri.parse(model);
