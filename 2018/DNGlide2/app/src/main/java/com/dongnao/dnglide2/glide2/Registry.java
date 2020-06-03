@@ -41,11 +41,13 @@ public class Registry {
      */
     public <Model> List<ModelLoader<Model, ?>> getModelLoaders(Model model) {
         Class<Model> modelClass = (Class<Model>) model.getClass();
+        //其实这就是代理方法，实际是从modelLoaderRegistry拿
         List<ModelLoader<Model, ?>> modelLoaders = modelLoaderRegistry.getModelLoaders
                 (modelClass);
         return modelLoaders;
     }
 
+    //这里是拿LoadData，LoadData的DataFetcher是真正去拿数据的
     public List<ModelLoader.LoadData<?>> getLoadDatas(Object model) {
         List<ModelLoader.LoadData<?>> loadData = new ArrayList<>();
         List<ModelLoader<Object, ?>> modelLoaders = getModelLoaders(model);
