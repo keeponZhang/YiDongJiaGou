@@ -5,12 +5,18 @@ import android.content.Context;
 import android.util.DisplayMetrics;
 
 import com.dongnao.dnglide2.glide2.cache.ArrayPool;
+import com.dongnao.dnglide2.glide2.cache.LruArrayPool;
 import com.dongnao.dnglide2.glide2.cache.LruMemoryCache;
 import com.dongnao.dnglide2.glide2.cache.MemoryCache;
 import com.dongnao.dnglide2.glide2.cache.recycle.BitmapPool;
-import com.dongnao.dnglide2.glide2.cache.recycle.DiskCache;
-import com.dongnao.dnglide2.glide2.cache.recycle.DiskLruCacheWrapper;
+import com.dongnao.dnglide2.glide2.cache.DiskCache;
+import com.dongnao.dnglide2.glide2.cache.DiskLruCacheWrapper;
 import com.dongnao.dnglide2.glide2.cache.recycle.LruBitmapPool;
+import com.dongnao.dnglide2.glide2.load.Engine;
+import com.dongnao.dnglide2.glide2.load.GlideExecutor;
+import com.dongnao.dnglide2.glide2.request.RequestOptions;
+
+import java.util.concurrent.ThreadPoolExecutor;
 
 /**
  * Created by Administrator on 2018/5/9.
@@ -23,7 +29,9 @@ public class GlideBuilder {
     BitmapPool bitmapPool;
     //进行数组的缓存
     ArrayPool arrayPool;
-
+    RequestOptions defaultRequestOptions = new RequestOptions();
+    ThreadPoolExecutor executor;
+    Engine engine;
 
     public void setMemoryCache(MemoryCache memoryCache) {
         this.memoryCache = memoryCache;
@@ -37,18 +45,37 @@ public class GlideBuilder {
         this.bitmapPool = bitmapPool;
     }
 
+    public void setArrayPool(ArrayPool arrayPool) {
+        this.arrayPool = arrayPool;
+    }
+
     private static int getMaxSize(ActivityManager activityManager) {
         //使用最大可用内存的0.4作为缓存使用  64M
         final int memoryClassBytes = activityManager.getMemoryClass() * 1024 * 1024;
         return Math.round(memoryClassBytes * 0.4f);
     }
 
+    public void setExecutor(ThreadPoolExecutor executor) {
+        this.executor = executor;
+    }
+
+    public void setDefaultRequestOptions(RequestOptions defaultRequestOptions) {
+        this.defaultRequestOptions = defaultRequestOptions;
+    }
+
+    public void setEngine(Engine engine) {
+        this.engine = engine;
+    }
+
+
     public Glide build(Context context) {
         ActivityManager activityManager = (ActivityManager) context.getSystemService(Context
                 .ACTIVITY_SERVICE);
         //Glide缓存最大可用内存大小
         int maxSize = getMaxSize(activityManager);
-
+        if (null == arrayPool){
+            arrayPool = new LruArrayPool();
+        }
         //减去数组缓存后的可用内存大小
         int availableSize = maxSize - arrayPool.getMaxSize();
 
@@ -78,10 +105,14 @@ public class GlideBuilder {
         if (null == memoryCache) {
             memoryCache = new LruMemoryCache((int) memoryCacheSize);
         }
-//TODO       memoryCache.setResourceRemoveListener();
         if (null == diskCache) {
             diskCache = new DiskLruCacheWrapper(context);
         }
+        if (executor == null) {
+            executor = GlideExecutor.newExecutor();
+        }
+        engine = new Engine(memoryCache, diskCache, bitmapPool, executor);
+        memoryCache.setResourceRemoveListener(engine);
         return new Glide(context, this);
     }
 

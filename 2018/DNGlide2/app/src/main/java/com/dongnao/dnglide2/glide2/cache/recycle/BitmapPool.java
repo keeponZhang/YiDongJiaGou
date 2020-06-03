@@ -21,4 +21,6 @@ public interface BitmapPool {
     Bitmap get(int width,int height,Bitmap.Config config);
 
 
+    void clearMemory();
+    void trimMemory(int level);
 }

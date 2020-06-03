@@ -8,6 +8,10 @@ import com.dongnao.dnglide2.glide2.cache.recycle.Resource;
 
 public interface MemoryCache {
 
+    void clearMemory();
+
+    void trimMemory(int level);
+
     interface ResourceRemoveListener{
         void onResourceRemoved(Resource resource);
     }
