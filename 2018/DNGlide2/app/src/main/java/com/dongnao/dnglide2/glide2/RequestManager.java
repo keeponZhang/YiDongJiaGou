@@ -59,6 +59,6 @@ public class RequestManager implements LifecycleListener {
      * 管理Request
      */
     public void track(Request request) {
-        requestTrack.runReuqest(request);
+        requestTrack.runRequest(request);
     }
 }

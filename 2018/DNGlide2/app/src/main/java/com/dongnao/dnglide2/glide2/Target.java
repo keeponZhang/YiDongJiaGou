@@ -66,6 +66,7 @@ public class Target {
         public boolean onPreDraw() {
             Target target = targetRef.get();
             if (target != null) {
+                //检查是否是有效的
                 target.checkCurrentDimens();
             }
             return true;
@@ -152,6 +153,7 @@ public class Target {
         if (currentHeight <= 0 && currentWidth <= 0) {
             return;
         }
+        //回调给request的onSizeReady方法，此时控件的大小已经有了
         cb.onSizeReady(currentWidth, currentHeight);
         cancel();
     }

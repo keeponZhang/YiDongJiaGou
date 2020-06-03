@@ -162,7 +162,7 @@ public final class Request implements Target.SizeReadyCallback, ResourceCallback
                 model,
                 width,
                 height,
-                this);
+                this);//这个是ResourceCallback，之前的是sizeCallBack
     }
 
     @Override

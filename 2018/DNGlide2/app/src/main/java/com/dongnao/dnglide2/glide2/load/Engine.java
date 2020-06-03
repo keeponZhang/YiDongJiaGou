@@ -94,6 +94,7 @@ public class Engine implements MemoryCache.ResourceRemoveListener, Resource.Reso
             // 加入正在使用集合 引用数+1
             activeResources.activate(engineKey, resource);
             resource.acquire();
+            //这个监听器需要注意
             resource.setResourceListener(engineKey, this);
             cb.onResourceReady(resource);
             return null;
