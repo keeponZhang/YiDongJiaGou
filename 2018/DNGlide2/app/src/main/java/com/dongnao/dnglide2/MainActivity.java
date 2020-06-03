@@ -48,9 +48,9 @@ public class MainActivity extends AppCompatActivity {
                 .into(iv);
 
 
-        Glide.with(this).load("/sdcard/main.jpg")
-                .into(iv1);
-        Glide.with(this).load(new File("/sdcard/okhttp.png")).into(iv2);
+        // Glide.with(this).load("/sdcard/main.jpg")
+        //         .into(iv1);
+        // Glide.with(this).load(new File("/sdcard/okhttp.png")).into(iv2);
 
     }
 

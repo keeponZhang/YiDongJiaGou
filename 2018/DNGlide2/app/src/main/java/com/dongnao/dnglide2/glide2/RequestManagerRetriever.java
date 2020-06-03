@@ -24,22 +24,25 @@ public class RequestManagerRetriever implements Handler.Callback {
 
     public static final String FRAG_TAG = "glide_fragment";
     private final static int REMOVE_SUPPORT_FRAGMENT = 1;
+    private final GlideContext glideContext;
     RequestManager applicationRequestManager;
     //临时集合
     private Map<FragmentManager, SupportRequestManagerFragment> supports = new HashMap<>();
     private Handler handler;
 
-    public RequestManagerRetriever() {
+    public RequestManagerRetriever(GlideContext glideContext) {
+        this.glideContext = glideContext;
         handler = new Handler(Looper.getMainLooper(), this);
     }
 
     /**
      * 给Application使用的 不管理生命周期
+     *
      * @return
      */
     private RequestManager getApplicationManager() {
         if (null == applicationRequestManager) {
-            applicationRequestManager = new RequestManager(new ApplicationLifecycle());
+            applicationRequestManager = new RequestManager(glideContext, new ApplicationLifecycle());
         }
         return applicationRequestManager;
     }
@@ -51,7 +54,7 @@ public class RequestManagerRetriever implements Handler.Callback {
             } else if (context instanceof Activity) {
 
             } else if (context instanceof ContextWrapper) {
-
+                get(((ContextWrapper) context).getBaseContext());
             }
         }
         return getApplicationManager();
@@ -68,7 +71,7 @@ public class RequestManagerRetriever implements Handler.Callback {
         // 将RequestManager交给 Frgament 来保存
         RequestManager requestManager = fragment.getRequestManager();
         if (null == requestManager) {
-            requestManager = new RequestManager(fragment.getGlideLifecycle());
+            requestManager = new RequestManager(glideContext, fragment.getGlideLifecycle());
             fragment.setRequestManager(requestManager);
         }
         return requestManager;
@@ -76,6 +79,7 @@ public class RequestManagerRetriever implements Handler.Callback {
 
     /**
      * 获得Frqagment
+     *
      * @param fm
      * @return
      */

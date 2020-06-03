@@ -3,6 +3,9 @@ package com.dongnao.dnglide2.glide2;
 import android.widget.ImageView;
 
 import com.dongnao.dnglide2.glide2.request.Request;
+import com.dongnao.dnglide2.glide2.request.RequestOptions;
+
+import java.io.File;
 
 /**
  * Created by Administrator on 2018/5/9.
@@ -10,17 +13,29 @@ import com.dongnao.dnglide2.glide2.request.Request;
 
 public class RequestBuilder {
 
-    //原版传入的是RequestTracker
+    private final GlideContext glideContext;
+    private RequestOptions requestOptions;
     private RequestManager requestManager;
     private Object model;
 
-    public RequestBuilder(RequestManager requestManager) {
+    public RequestBuilder(GlideContext glideContext, RequestManager requestManager) {
+        this.glideContext = glideContext;
         this.requestManager = requestManager;
+        this.requestOptions = glideContext.defaultRequestOptions;
     }
 
-    //记录model
+    public RequestBuilder apply(RequestOptions requestOptions) {
+        this.requestOptions = requestOptions;
+        return this;
+    }
+
     public RequestBuilder load(String string) {
         model = string;
+        return this;
+    }
+
+    public RequestBuilder load(File file) {
+        model = file;
         return this;
     }
 
@@ -33,7 +48,7 @@ public class RequestBuilder {
         //将View交给Target
         Target target = new Target(view);
         //图片加载与设置
-        Request request = new Request(model, target);
+        Request request = new Request(glideContext,requestOptions, model, target);
         //Request交给 RequestManager 管理
         requestManager.track(request);
     }

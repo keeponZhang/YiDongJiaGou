@@ -22,7 +22,7 @@ public class HttpUriFetcher implements DataFetcher<InputStream> {
     }
 
     @Override
-    public void loadData(DataFetcherCallback<InputStream> callback) {
+    public void loadData(DataFetcherCallback<? super InputStream> callback) {
         HttpURLConnection conn = null;
         InputStream is = null;
         try {
@@ -58,5 +58,10 @@ public class HttpUriFetcher implements DataFetcher<InputStream> {
     @Override
     public void cancel() {
         isCanceled = true;
+    }
+
+    @Override
+    public Class<InputStream> getDataClass() {
+        return InputStream.class;
     }
 }

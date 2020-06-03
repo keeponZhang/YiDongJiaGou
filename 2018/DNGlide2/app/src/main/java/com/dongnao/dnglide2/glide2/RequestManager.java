@@ -5,22 +5,25 @@ import com.dongnao.dnglide2.glide2.manager.LifecycleListener;
 import com.dongnao.dnglide2.glide2.manager.RequestTrack;
 import com.dongnao.dnglide2.glide2.request.Request;
 
+import java.io.File;
+
 /**
  * Created by Administrator on 2018/5/9.
  */
 
-//RequestManager实现LifecycleListener，这样就可以监听生命周期
 public class RequestManager implements LifecycleListener {
 
     private final Lifecycle lifecycle;
-    //其实真正管理请求的是RequestTrack
+    private final GlideContext glideContext;
     RequestTrack requestTrack;
 
-    public RequestManager(Lifecycle lifecycle) {
+    public RequestManager(GlideContext glideContext,Lifecycle lifecycle) {
+        this.glideContext = glideContext;
         this.lifecycle = lifecycle;
+        requestTrack = new RequestTrack();
         //注册生命周期回调监听
         lifecycle.addListener(this);
-        requestTrack = new RequestTrack();
+
     }
 
     @Override
@@ -52,11 +55,16 @@ public class RequestManager implements LifecycleListener {
 
 
     public RequestBuilder load(String string) {
-        return new RequestBuilder(this).load(string);
+        return new RequestBuilder(glideContext,this).load(string);
+    }
+
+    public RequestBuilder load(File file) {
+        return new RequestBuilder(glideContext,this).load(file);
     }
 
     /**
      * 管理Request
+     * 执行请求
      */
     public void track(Request request) {
         requestTrack.runRequest(request);
