@@ -1,5 +1,6 @@
 package com.dongnao.dnglide2.glide2.cache;
 
+import android.content.ComponentCallbacks2;
 import android.os.Build;
 import android.support.v4.util.LruCache;
 
@@ -16,6 +17,7 @@ public class LruMemoryCache extends LruCache<Key, Resource> implements MemoryCac
     public LruMemoryCache(int maxSize) {
         super(maxSize);
     }
+
 
     @Override
     protected int sizeOf(Key key, Resource value) {
@@ -42,6 +44,22 @@ public class LruMemoryCache extends LruCache<Key, Resource> implements MemoryCac
         Resource remove = remove(key);
         isRemoved = false;
         return remove;
+    }
+
+    @Override
+    public void clearMemory() {
+        evictAll();
+    }
+
+    @Override
+    public void trimMemory(int level) {
+        //程序进入后台 进程加入lru列表 系统资源紧张时根据lru列表杀死进程
+        if (level >= ComponentCallbacks2.TRIM_MEMORY_BACKGROUND) {
+            clearMemory();
+            //程序所有ui被隐藏  应该释放一部分资源
+        } else if (level >= ComponentCallbacks2.TRIM_MEMORY_UI_HIDDEN) {
+            trimToSize(maxSize() / 2);
+        }
     }
 
     /**

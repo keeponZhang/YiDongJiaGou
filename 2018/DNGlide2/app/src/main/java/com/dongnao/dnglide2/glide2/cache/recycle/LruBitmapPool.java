@@ -1,5 +1,6 @@
 package com.dongnao.dnglide2.glide2.cache.recycle;
 
+import android.content.ComponentCallbacks2;
 import android.graphics.Bitmap;
 import android.support.v4.util.LruCache;
 
@@ -76,5 +77,17 @@ public class LruBitmapPool extends LruCache<Integer, Bitmap> implements BitmapPo
             oldValue.recycle();
     }
 
+    @Override
+    public void clearMemory() {
+        evictAll();
+    }
 
+    @Override
+    public void trimMemory(int level) {
+        if (level >= ComponentCallbacks2.TRIM_MEMORY_BACKGROUND) {
+            clearMemory();
+        } else if (level >= ComponentCallbacks2.TRIM_MEMORY_UI_HIDDEN) {
+            trimToSize(maxSize() / 2);
+        }
+    }
 }
