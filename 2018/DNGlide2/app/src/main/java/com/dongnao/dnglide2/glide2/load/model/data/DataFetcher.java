@@ -20,8 +20,8 @@ public interface DataFetcher<Data> {
         void onLoadFaled(Exception e);
     }
 
-    void loadData(DataFetcherCallback<Data> callback);
+    void loadData(DataFetcherCallback<? super Data> callback);
 
     void cancel();
-
+    Class<?> getDataClass();
 }

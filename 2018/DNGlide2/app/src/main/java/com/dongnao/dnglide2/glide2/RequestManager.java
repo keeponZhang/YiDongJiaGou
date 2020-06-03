@@ -9,9 +9,11 @@ import com.dongnao.dnglide2.glide2.request.Request;
  * Created by Administrator on 2018/5/9.
  */
 
+//RequestManager实现LifecycleListener，这样就可以监听生命周期
 public class RequestManager implements LifecycleListener {
 
     private final Lifecycle lifecycle;
+    //其实真正管理请求的是RequestTrack
     RequestTrack requestTrack;
 
     public RequestManager(Lifecycle lifecycle) {

@@ -10,6 +10,7 @@ import com.dongnao.dnglide2.glide2.request.Request;
 
 public class RequestBuilder {
 
+    //原版传入的是RequestTracker
     private RequestManager requestManager;
     private Object model;
 
@@ -17,6 +18,7 @@ public class RequestBuilder {
         this.requestManager = requestManager;
     }
 
+    //记录model
     public RequestBuilder load(String string) {
         model = string;
         return this;

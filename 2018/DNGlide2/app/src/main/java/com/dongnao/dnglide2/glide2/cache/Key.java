@@ -6,6 +6,6 @@ import java.security.MessageDigest;
  * Created by Administrator on 2018/5/4.
  */
 public interface Key {
-
+    byte[] getKeyBytes();
     void updateDiskCacheKey(MessageDigest md);
 }

@@ -17,9 +17,9 @@ public interface ModelLoader<Model, Data> {
 
     class LoadData<Data> {
         //缓存的key
-        final Key key;
+        public final Key key;
         //加载数据
-        final DataFetcher<Data> fetcher;
+        public final DataFetcher<Data> fetcher;
 
         public LoadData(Key key, DataFetcher<Data> fetcher) {
             this.key = key;

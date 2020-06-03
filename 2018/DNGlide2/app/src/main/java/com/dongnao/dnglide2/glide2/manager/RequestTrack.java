@@ -1,5 +1,6 @@
 package com.dongnao.dnglide2.glide2.manager;
 
+import com.dongnao.dnglide2.glide2.Utils;
 import com.dongnao.dnglide2.glide2.request.Request;
 
 import java.util.ArrayList;
@@ -24,19 +25,63 @@ public class RequestTrack {
      */
     private List<Request> pendingRequests = new ArrayList<>();
 
-    public void runReuqest(Request request) {
+    private boolean isPaused;
 
+    /**
+     * 执行请求
+     */
+    public void runRequest(Request request) {
+        //将请求加入一个集合当中 进行管理
+        requests.add(request);
+        if (!isPaused) {
+            //开始请求
+            request.begin();
+        } else {
+            pendingRequests.add(request);
+        }
     }
 
+
+    /**
+     * 暂停请求
+     */
     public void pauseRequests() {
-
+        isPaused = true;
+        for (Request request : Utils.getSnapshot(requests)) {
+            if (request.isRunning()) {
+                request.pause();
+                pendingRequests.add(request);
+            }
+        }
     }
 
+
+    /**
+     * 继续请求
+     */
     public void resumeRequests() {
-
+        isPaused = false;
+        for (Request request : Utils.getSnapshot(requests)) {
+            if (!request.isComplete() && !request.isCancelled() && !request.isRunning()) {
+                request.begin();
+            }
+        }
+        pendingRequests.clear();
     }
 
-    public void clearRequests() {
 
+    /**
+     * 清理请求
+     */
+    public void clearRequests() {
+        for (Request request : Utils.getSnapshot(requests)) {
+            if (request == null) {
+                return;
+            }
+            requests.remove(request);
+            request.clear();
+            request.recycle();
+        }
+        pendingRequests.clear();
     }
 }
