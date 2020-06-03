@@ -43,6 +43,7 @@ public class EngineJob implements DecodeJob.Callback {
     }
 
     private EngineKey key;
+    //如果是家长多张同一图片的时候有用
     private final List<ResourceCallback> cbs = new ArrayList<>();
     private final ThreadPoolExecutor threadPool;
     private final EngineJobListener listener;

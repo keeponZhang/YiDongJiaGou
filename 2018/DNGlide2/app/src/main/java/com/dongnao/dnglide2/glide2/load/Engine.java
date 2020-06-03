@@ -116,9 +116,10 @@ public class Engine implements MemoryCache.ResourceRemoveListener, Resource.Reso
         engineJob = new EngineJob(threadPool, engineKey, this);
         engineJob.addCallback(cb);
         //加载任务
+        //DecodeJob加载完成会回调EngineJob的onResourceReady，这里把engineJob作为callBack传了进去
         DecodeJob decodeJob = new DecodeJob(glideContext, diskCache, model, width, height,
                 engineJob);
-        //启动加载任务
+        //启动加载任务，engineJob里面有一个线程池
         engineJob.start(decodeJob);
         jobs.put(engineKey, engineJob);
         return new LoadStatus(cb, engineJob);
