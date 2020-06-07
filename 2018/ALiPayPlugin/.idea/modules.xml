@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ALiPayPlugin.iml" filepath="$PROJECT_DIR$/ALiPayPlugin.iml" group="ALiPayPlugin" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="ALiPayPlugin/app" />
+      <module fileurl="file://$PROJECT_DIR$/pluginstand/pluginstand.iml" filepath="$PROJECT_DIR$/pluginstand/pluginstand.iml" group="ALiPayPlugin/pluginstand" />
+      <module fileurl="file://$PROJECT_DIR$/taopiaopiao/taopiaopiao.iml" filepath="$PROJECT_DIR$/taopiaopiao/taopiaopiao.iml" group="ALiPayPlugin/taopiaopiao" />
+    </modules>
+  </component>
+</project>
