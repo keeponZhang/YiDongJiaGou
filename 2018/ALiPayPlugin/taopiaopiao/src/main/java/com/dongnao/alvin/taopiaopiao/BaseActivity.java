@@ -47,17 +47,7 @@ public class BaseActivity  extends Activity implements PayInterfaceActivity {
 
     }
 
-    @Override
-    public ComponentName startService(Intent service) {
-        Intent m = new Intent();
-        m.putExtra("serviceName", service.getComponent().getClassName());
-        if (that != null) {
-            return that.startService(m);
-        }else{
-            return super.startService(m);
-        }
 
-    }
 
     @Override
     public View findViewById(int id) {
@@ -85,7 +75,18 @@ public class BaseActivity  extends Activity implements PayInterfaceActivity {
         }
 
     }
+    @Override
+    public ComponentName startService(Intent service) {
+        Intent m = new Intent();
+        m.putExtra("serviceName", service.getComponent().getClassName());
+        if (that != null) {
+            //这里走的是ProxyActivity的startService方法，开启的是已经注册了的服务
+            return that.startService(m);
+        }else{
+            return super.startService(m);
+        }
 
+    }
 
     @Override
     public void startActivity(Intent intent) {
@@ -93,6 +94,7 @@ public class BaseActivity  extends Activity implements PayInterfaceActivity {
         Intent m = new Intent();
         m.putExtra("className", intent.getComponent().getClassName());
         if (that != null) {
+            //这里走的是ProxyActivity的startActivity方法
             that.startActivity(m);
         }else{
             super.startActivity(intent);

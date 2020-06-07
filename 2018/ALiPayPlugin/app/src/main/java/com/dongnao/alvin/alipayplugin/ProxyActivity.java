@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 import com.dongnao.alvin.pluginstand.PayInterfaceActivity;
 
@@ -24,6 +25,7 @@ public class ProxyActivity extends Activity {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.e("TAG", "ProxyActivity onCreate------------------:" );
         className = getIntent().getStringExtra("className");
 //        class
 
@@ -45,11 +47,12 @@ public class ProxyActivity extends Activity {
             setContentView(R.layout.activity_proxy);
         }
     }
-
+    //BaSeActivity跳转的会调用此方法
     @Override
     public void startActivity(Intent intent) {
         String className1 = intent.getStringExtra("className");
         Intent intent1 = new Intent(this, ProxyActivity.class);
+        //要使用proxy作为代理activity，className参数值必不可少
         intent1.putExtra("className", className1);
         super.startActivity(intent1);
     }

@@ -15,6 +15,7 @@ import com.dongnao.alvin.pluginstand.PayInterfaceService;
 
 public class BaseService extends Service  implements PayInterfaceService {
     private static final String TAG = "david";
+    //代理服务这里暂时没用到
     private Service that;
     @Nullable
     @Override

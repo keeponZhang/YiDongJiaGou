@@ -34,6 +34,7 @@ public class ProxyService extends  Service{
             Constructor<?> localConstructor =loadClass.getConstructor(new Class[] {});
             Object instance = localConstructor.newInstance(new Object[] {});
 //            OneService
+            //这个表示真正要开启的服务
             payInterfaceService = (PayInterfaceService) instance;
             payInterfaceService.attach(this);
             Bundle bundle = new Bundle();
