@@ -67,11 +67,12 @@ public class ModelLoaderRegistry {
     public <Model> List<ModelLoader<Model, ?>> getModelLoaders(Class<Model> modelClass) {
         List<ModelLoader<Model, ?>> modelLoaders = new ArrayList<>();
         for (Entry<?, ?> entry : entries) {
-            //model 符合的加入集合
+            //model 符合的加入集合，model通过handles方法筛选
             if (entry.handles(modelClass)) {
                 modelLoaders.add((ModelLoader<Model, ?>) entry.factory.build(this));
             }
         }
+        //StringLoader
         return modelLoaders;
     }
 

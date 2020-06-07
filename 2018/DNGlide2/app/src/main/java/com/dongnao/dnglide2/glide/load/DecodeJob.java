@@ -87,6 +87,7 @@ public class DecodeJob implements Runnable, DataGenerator.DataGeneratorCallback 
         boolean isStarted = false;
         while (!isCancelled && currentGenerator != null && !isStarted) {
             isStarted = currentGenerator.startNext();
+            //true break ，表示已经找到了
             if (isStarted) {
                 break;
             }
@@ -96,6 +97,7 @@ public class DecodeJob implements Runnable, DataGenerator.DataGeneratorCallback 
                 Log.e(TAG, "状态结束,没有加载器能够加载对应数据");
                 break;
             }
+            //找到的currentGenerator为空，也会break出去
             currentGenerator = getNextGenerator();
         }
         if ((stage == Stage.FINISHED || isCancelled) && !isStarted) {
@@ -113,6 +115,7 @@ public class DecodeJob implements Runnable, DataGenerator.DataGeneratorCallback 
 
     private void notifyComplete(final Bitmap bitmap, DataSource dataSource) {
         if (dataSource == DataSource.REMOTE) {
+            //写入缓存
             glide.getDiskCache().put(sourceKey, new DiskCache.Writer() {
                 @Override
                 public boolean write(@NonNull File file) {
@@ -136,7 +139,9 @@ public class DecodeJob implements Runnable, DataGenerator.DataGeneratorCallback 
                 }
             });
         }
+        //包装成resource
         Resource resource = new Resource(bitmap);
+        //callback:EngineJob
         callback.onResourceReady(resource);
     }
 

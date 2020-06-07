@@ -13,7 +13,7 @@ import java.io.InputStream;
 public class StringLoader<Data> implements ModelLoader<String, Data> {
 
     /**
-     * 代理
+     * 代理(在这里是MutilLoader)
      */
     private final ModelLoader<Uri, Data> uriLoader;
 
@@ -31,6 +31,7 @@ public class StringLoader<Data> implements ModelLoader<String, Data> {
         } else {
             uri = Uri.parse(model);
         }
+        //注意参数，这里是传的uri，因为是uriLoader处理的，在里面也会调用handle方法，决定真正处理的loader
         return uriLoader.buildLoadData(uri);
     }
 
@@ -50,6 +51,7 @@ public class StringLoader<Data> implements ModelLoader<String, Data> {
          */
         @Override
         public ModelLoader<String, InputStream> build(ModelLoaderRegistry modelLoaderRegistry) {
+            //class com.dongnao.dnglide2.glide.load.model.MultiModelLoader
             return new StringLoader<>(modelLoaderRegistry.build(Uri.class, InputStream.class));
         }
     }

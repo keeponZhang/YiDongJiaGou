@@ -35,6 +35,7 @@ public class DataCacheGenerator implements DataGenerator, DataFetcher.DataFetche
         this.cb = cb;
         //获得对应类型的所有key (当前只有ObjectKey用于磁盘缓存，磁盘缓存不需要宽、高等)
         //即如果文件缓存 获得缓存的key
+        //这拿的是Key
         keys = glide.getRegistry().getKeys(model);
     }
 
@@ -44,7 +45,9 @@ public class DataCacheGenerator implements DataGenerator, DataFetcher.DataFetche
         Log.e(TAG, "磁盘加载器开始加载");
         while (modelLoaders == null) {
             sourceIdIndex++;
+            //超过数量,直接return false(没有缓存的时候也会满足)
             if (sourceIdIndex >= keys.size()) {
+                Log.e("TAG", "DataCacheGenerator startNext 超过数量,直接return false sourceIdIndex:" +sourceIdIndex);
                 return false;
             }
             Key sourceId = keys.get(sourceIdIndex);
@@ -55,6 +58,7 @@ public class DataCacheGenerator implements DataGenerator, DataFetcher.DataFetche
                 sourceKey = sourceId;
                 Log.e(TAG, "获得所有文件加载器");
                 //获得所有的文件加载器
+                //FileLoader
                 modelLoaders = glide.getRegistry().getModelLoaders(cacheFile);
                 modelLoaderIndex = 0;
             }

@@ -118,6 +118,7 @@ public class Engine implements MemoryCache.ResourceRemovedListener, Resource.Res
     @Override
     public void onEngineJobComplete(EngineJob engineJob, Key key, Resource resource) {
         if (resource != null) {
+            //设置监听
             resource.setResourceListener(key, this);
             activeResources.activate(key, resource);
         }

@@ -39,6 +39,7 @@ public class Registry {
      * @return
      */
     public <Model> List<ModelLoader<Model, ?>> getModelLoaders(Model model) {
+        //注意：这里是用的model的class
         Class<Model> modelClass = (Class<Model>) model.getClass();
         List<ModelLoader<Model, ?>> modelLoaders = modelLoaderRegistry.getModelLoaders
                 (modelClass);
@@ -50,6 +51,7 @@ public class Registry {
         List<ModelLoader<Object, ?>> modelLoaders = getModelLoaders(model);
         for (ModelLoader<Object, ?> modelLoader : modelLoaders) {
             //获得LoadData
+            //StringLoader
             ModelLoader.LoadData<?> current =
                     modelLoader.buildLoadData(model);
             if (current != null) {
@@ -61,6 +63,7 @@ public class Registry {
 
 
     public List<Key> getKeys(Object model) {
+        //Key是loadData里面的，可以先拿到model，在拿到loadData拿
         List<Key> keys = new ArrayList<>();
         List<ModelLoader.LoadData<?>> loadDatas = getLoadDatas(model);
         for (ModelLoader.LoadData<?> loadData : loadDatas) {

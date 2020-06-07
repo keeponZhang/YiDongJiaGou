@@ -27,6 +27,7 @@ public class SourceGenerator implements DataGenerator, DataFetcher.DataFetcherCa
         this.glide = glide;
         this.model = model;
         this.cb = cb;
+        //这里拿的是loadData
         loadDatas = glide.getRegistry().getLoadDatas(model);
     }
 

@@ -13,9 +13,10 @@ import java.util.TreeSet;
  * @author Lance
  * @date 2018/4/21
  */
-
+//泛型是Data的class类型
 public class LoadPath<Data> {
     private final Class<Data> dataClass;
+    //这里可以有多个decoders
     private final List<ResourceDecoder<Data>> decoders;
 
     public LoadPath(Class<Data> dataClass, List<ResourceDecoder<Data>> decoder) {

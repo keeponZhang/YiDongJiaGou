@@ -17,12 +17,13 @@ import java.io.File;
 
 public class MainActivity extends AppCompatActivity {
 
+    private ImageView mIv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ImageView iv = findViewById(R.id.iv);
+        mIv = findViewById(R.id.iv);
         ImageView iv1 = findViewById(R.id.iv1);
         ImageView iv2 = findViewById(R.id.iv2);
 
@@ -40,12 +41,7 @@ public class MainActivity extends AppCompatActivity {
 //        };
 
 
-        Glide.with(this).load("https://ss1.bdstatic" +
-                ".com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2669567003," +
-                "3609261574&fm=27&gp=0.jpg22222222asads")
-                .apply(new RequestOptions().error(R.drawable.ic_launcher_background).placeholder
-                        (R.mipmap.ic_launcher).override(500, 500))
-                .into(iv);
+
 
 
         // Glide.with(this).load("/sdcard/main.jpg")
@@ -56,5 +52,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void toNext(View view) {
         startActivity(new Intent(this, SecondActivity.class));
+    }
+
+    public void load(View view) {
+        Glide.with(this).load("https://ss1.bdstatic" +
+                ".com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2669567003," +
+                "3609261574&fm=27&gp=0.jpg22222222asads")
+                .apply(new RequestOptions().error(R.drawable.ic_launcher_background).placeholder
+                        (R.mipmap.ic_launcher).override(500, 500))
+                .into(mIv);
     }
 }

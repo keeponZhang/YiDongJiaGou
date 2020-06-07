@@ -133,10 +133,12 @@ public class EngineJob implements DecodeJob.Callback {
             return;
         }
         resource.acquire();
+        //Engine
         listener.onEngineJobComplete(this, key, resource);
         for (int i = 0, size = cbs.size(); i < size; i++) {
             ResourceCallback cb = cbs.get(i);
             resource.acquire();
+            //cb:request
             cb.onResourceReady(resource);
         }
         resource.release();
