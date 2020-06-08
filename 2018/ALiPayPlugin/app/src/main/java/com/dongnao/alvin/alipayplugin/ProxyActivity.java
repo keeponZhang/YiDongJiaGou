@@ -1,8 +1,10 @@
 package com.dongnao.alvin.alipayplugin;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -63,6 +65,15 @@ public class ProxyActivity extends Activity {
         Intent intent1 = new Intent(this, ProxyService.class);
         intent1.putExtra("serviceName", serviceName);
         return super.startService(intent1);
+    }
+    @Override
+    public Intent registerReceiver(BroadcastReceiver receiver, IntentFilter filter) {
+//
+        IntentFilter newInterFilter = new IntentFilter();
+        for (int i=0;i<filter.countActions();i++) {
+            newInterFilter.addAction(filter.getAction(i));
+        }
+        return super.registerReceiver(new ProxyBroadCast(receiver.getClass().getName(),this),newInterFilter);
     }
 
     @Override

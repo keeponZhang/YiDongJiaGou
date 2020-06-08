@@ -1,8 +1,10 @@
 package com.dongnao.alvin.taopiaopiao;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.ApplicationInfo;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -75,6 +77,7 @@ public class BaseActivity  extends Activity implements PayInterfaceActivity {
         }
 
     }
+
     @Override
     public ComponentName startService(Intent service) {
         Intent m = new Intent();
@@ -87,7 +90,22 @@ public class BaseActivity  extends Activity implements PayInterfaceActivity {
         }
 
     }
+    @Override
+    public void sendBroadcast(Intent intent) {
+        if(that!=null){
+            that.sendBroadcast(intent);
+        }else{
+            super.sendBroadcast(intent);
+        }
 
+    }
+    @Override
+    public Intent registerReceiver(BroadcastReceiver receiver, IntentFilter filter) {
+        if(that==null){
+            return super.registerReceiver(receiver, filter);
+        }
+        return that.registerReceiver(receiver, filter);
+    }
     @Override
     public void startActivity(Intent intent) {
 //        ProxyActivity --->className

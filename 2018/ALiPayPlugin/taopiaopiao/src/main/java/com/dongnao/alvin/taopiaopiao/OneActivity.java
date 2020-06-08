@@ -1,6 +1,7 @@
 package com.dongnao.alvin.taopiaopiao;
 
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -26,7 +27,17 @@ public class OneActivity extends  BaseActivity{
                         startActivity(new Intent(OneActivity.this,SceondActivity.class));
                         startService(new Intent(OneActivity.this, OneService.class));
                     }
-
+               IntentFilter intentFilter = new IntentFilter();
+               intentFilter.addAction("com.dongnao.alvin.taopiaopiao.MainActivity");
+               registerReceiver(new MyReceiver(), intentFilter);
+            }
+        });
+        findViewById(R.id.sendBroad).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               Intent intent = new Intent();
+               intent.setAction("com.dongnao.alvin.taopiaopiao.MainActivity");
+               sendBroadcast(intent);
             }
         });
     }
