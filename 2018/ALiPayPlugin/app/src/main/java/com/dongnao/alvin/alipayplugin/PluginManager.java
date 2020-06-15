@@ -49,8 +49,8 @@ public class PluginManager {
         String name = "taopiaopiao-debug.apk";
         String path = new File(filesDir, name).getAbsolutePath();
 
-        PackageManager packageManager=context.getPackageManager();
-        packageInfo=packageManager.getPackageArchiveInfo(path,PackageManager.GET_ACTIVITIES);
+        PackageManager packageManager = context.getPackageManager();
+        packageInfo = packageManager.getPackageArchiveInfo(path, PackageManager.GET_ACTIVITIES);
 
 
 //        activity 名字
@@ -62,14 +62,17 @@ public class PluginManager {
         try {
             AssetManager assetManager = AssetManager.class.newInstance();
 
-            Method addAssetPath=AssetManager.class.getMethod("addAssetPath", String.class);
+            Method addAssetPath = AssetManager.class.getMethod("addAssetPath", String.class);
             addAssetPath.invoke(assetManager, path);
-            resources = new Resources(assetManager, context.getResources().getDisplayMetrics(), context.getResources().getConfiguration());
-        } catch ( Exception e) {
+            resources = new Resources(assetManager, context.getResources().getDisplayMetrics(),
+                    context.getResources().getConfiguration());
+        } catch (Exception e) {
             e.printStackTrace();
         }
         Toast.makeText(context, "成功", Toast.LENGTH_LONG).show();
-         }
+        parseReceivers(context, path);
+    }
+
     private void parseReceivers(Context context, String path) {
 
 //        Package对象
@@ -80,12 +83,14 @@ public class PluginManager {
 
         try {
 
-            Class   packageParserClass = Class.forName("android.content.pm.PackageParser");
-            Method parsePackageMethod = packageParserClass.getDeclaredMethod("parsePackage", File.class, int.class);
+            Class packageParserClass = Class.forName("android.content.pm.PackageParser");
+            Method parsePackageMethod =
+                    packageParserClass.getDeclaredMethod("parsePackage", File.class, int.class);
             Object packageParser = packageParserClass.newInstance();
-            Object packageObj=  parsePackageMethod.invoke(packageParser, new File(path), PackageManager.GET_ACTIVITIES);
+            Object packageObj = parsePackageMethod
+                    .invoke(packageParser, new File(path), PackageManager.GET_ACTIVITIES);
 
-            Field receiverField=packageObj.getClass().getDeclaredField("receivers");
+            Field receiverField = packageObj.getClass().getDeclaredField("receivers");
 //拿到receivers  广播集合    app存在多个广播   集合  List<Activity>  name  ————》 ActivityInfo   className
             List receivers = (List) receiverField.get(packageObj);
 
@@ -94,22 +99,28 @@ public class PluginManager {
 
 
             // 调用generateActivityInfo 方法, 把PackageParser.Activity 转换成
-            Class<?> packageParser$ActivityClass = Class.forName("android.content.pm.PackageParser$Activity");
+            Class<?> packageParser$ActivityClass =
+                    Class.forName("android.content.pm.PackageParser$Activity");
 //            generateActivityInfo方法
             Class<?> packageUserStateClass = Class.forName("android.content.pm.PackageUserState");
-            Object defaltUserState= packageUserStateClass.newInstance();
-            Method generateReceiverInfo = packageParserClass.getDeclaredMethod("generateActivityInfo",
-                    packageParser$ActivityClass, int.class, packageUserStateClass, int.class);
+            Object defaltUserState = packageUserStateClass.newInstance();
+            Method generateReceiverInfo =
+                    packageParserClass.getDeclaredMethod("generateActivityInfo",
+                            packageParser$ActivityClass, int.class, packageUserStateClass,
+                            int.class);
             Class<?> userHandler = Class.forName("android.os.UserHandle");
             Method getCallingUserIdMethod = userHandler.getDeclaredMethod("getCallingUserId");
             int userId = (int) getCallingUserIdMethod.invoke(null);
 
             for (Object activity : receivers) {
                 ActivityInfo
-                        info= (ActivityInfo) generateReceiverInfo.invoke(packageParser,  activity,0, defaltUserState, userId);
+                        info = (ActivityInfo) generateReceiverInfo
+                        .invoke(packageParser, activity, 0, defaltUserState, userId);
                 BroadcastReceiver
-                        broadcastReceiver= (BroadcastReceiver) dexClassLoader.loadClass(info.name).newInstance();
-                List<? extends IntentFilter> intents= (List<? extends IntentFilter>) intentsField.get(activity);
+                        broadcastReceiver =
+                        (BroadcastReceiver) dexClassLoader.loadClass(info.name).newInstance();
+                List<? extends IntentFilter> intents =
+                        (List<? extends IntentFilter>) intentsField.get(activity);
                 for (IntentFilter intentFilter : intents) {
                     context.registerReceiver(broadcastReceiver, intentFilter);
                 }
@@ -121,6 +132,7 @@ public class PluginManager {
 
 
     }
+
     public Resources getResources() {
         return resources;
     }
