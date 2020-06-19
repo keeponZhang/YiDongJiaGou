@@ -1,7 +1,9 @@
 package com.dongnao.alvin.alipayplugin;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,13 +20,20 @@ import java.io.InputStream;
 import static android.content.ContentValues.TAG;
 
 public class MainActivity extends AppCompatActivity {
-
+    static final String ACTION = "com.dongnao.receivebrod.Receive1.PLUGIN_ACTION";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         PluginManager.getInstance().setContext(this);
+        registerReceiver(mReceiver, new IntentFilter(ACTION));
     }
+    BroadcastReceiver mReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Toast.makeText(context, " 我是宿主，收到你的消息,握手完成!", Toast.LENGTH_SHORT).show();
+        }
+    };
 
     public void load(View view) {
         loadPlugin();

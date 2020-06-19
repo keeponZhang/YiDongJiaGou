@@ -70,7 +70,7 @@ public class PluginManager {
             e.printStackTrace();
         }
         Toast.makeText(context, "成功", Toast.LENGTH_LONG).show();
-        parseReceivers(context, path);
+        // parseReceivers(context, path);
     }
 
     private void parseReceivers(Context context, String path) {
@@ -116,9 +116,12 @@ public class PluginManager {
                 ActivityInfo
                         info = (ActivityInfo) generateReceiverInfo
                         .invoke(packageParser, activity, 0, defaltUserState, userId);
+                //这种不行，classLoader不是同一个
+                // Class.forName("info.name");
                 BroadcastReceiver
                         broadcastReceiver =
                         (BroadcastReceiver) dexClassLoader.loadClass(info.name).newInstance();
+                //拿到activity里面的IntentFilter数组
                 List<? extends IntentFilter> intents =
                         (List<? extends IntentFilter>) intentsField.get(activity);
                 for (IntentFilter intentFilter : intents) {

@@ -16,7 +16,7 @@ public class StaticReceiver  extends BroadcastReceiver {
         Toast.makeText(context, "我是插件   收到宿主的消息  静态注册的广播  收到宿主的消息----->", Toast.LENGTH_SHORT).show();
         context.sendBroadcast(new Intent(ACTION));
         try {
-            Thread.sleep(3000);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

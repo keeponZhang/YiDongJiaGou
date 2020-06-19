@@ -7,7 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-public class OneActivity extends  BaseActivity{
+public class TaoPiaoPiaoMainActivity extends  BaseActivity{
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -23,9 +23,9 @@ public class OneActivity extends  BaseActivity{
                         startActivity(new Intent(that,SceondActivity.class));
                         startService(new Intent(that, OneService.class));
                     }else{
-                        Toast.makeText(OneActivity.this,"无代理-------->",Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(OneActivity.this,SceondActivity.class));
-                        startService(new Intent(OneActivity.this, OneService.class));
+                        Toast.makeText(TaoPiaoPiaoMainActivity.this,"无代理-------->",Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(TaoPiaoPiaoMainActivity.this,SceondActivity.class));
+                        startService(new Intent(TaoPiaoPiaoMainActivity.this, OneService.class));
                     }
                IntentFilter intentFilter = new IntentFilter();
                intentFilter.addAction("com.dongnao.alvin.taopiaopiao.MainActivity");

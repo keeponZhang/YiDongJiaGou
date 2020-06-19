@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/BinderFramwork.iml" filepath="$PROJECT_DIR$/BinderFramwork.iml" group="BinderFramwork" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="BinderFramwork/app" />
+      <module fileurl="file://$PROJECT_DIR$/otherproesss/otherproesss.iml" filepath="$PROJECT_DIR$/otherproesss/otherproesss.iml" group="BinderFramwork/otherproesss" />
+    </modules>
+  </component>
+</project>

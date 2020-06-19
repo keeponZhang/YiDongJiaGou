@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/2018-ALiPayPlugin.iml" filepath="$PROJECT_DIR$/2018-ALiPayPlugin.iml" group="ALiPayPlugin" />
       <module fileurl="file://$PROJECT_DIR$/ALiPayPlugin.iml" filepath="$PROJECT_DIR$/ALiPayPlugin.iml" group="ALiPayPlugin" />
+      <module fileurl="file://$PROJECT_DIR$/app/ALiPayPlugin-app.iml" filepath="$PROJECT_DIR$/app/ALiPayPlugin-app.iml" group="ALiPayPlugin/app" />
+      <module fileurl="file://$PROJECT_DIR$/pluginstand/ALiPayPlugin-pluginstand.iml" filepath="$PROJECT_DIR$/pluginstand/ALiPayPlugin-pluginstand.iml" group="ALiPayPlugin/pluginstand" />
+      <module fileurl="file://$PROJECT_DIR$/taopiaopiao/ALiPayPlugin-taopiaopiao.iml" filepath="$PROJECT_DIR$/taopiaopiao/ALiPayPlugin-taopiaopiao.iml" group="ALiPayPlugin/taopiaopiao" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="ALiPayPlugin/app" />
       <module fileurl="file://$PROJECT_DIR$/pluginstand/pluginstand.iml" filepath="$PROJECT_DIR$/pluginstand/pluginstand.iml" group="ALiPayPlugin/pluginstand" />
       <module fileurl="file://$PROJECT_DIR$/taopiaopiao/taopiaopiao.iml" filepath="$PROJECT_DIR$/taopiaopiao/taopiaopiao.iml" group="ALiPayPlugin/taopiaopiao" />
