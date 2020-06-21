@@ -262,7 +262,8 @@ public class HookUtil {
             Object loadedApk=getPackageInfoNoCheckMethod.invoke(currentActivityThread, applicationInfo, defaultCompatibilityInfo);
 
 
-
+            //data/data/宿主/plugin/插件包名/odex
+            //applicationInfo.packageNames是插件包名
             String odexPath = Utils.getPluginOptDexDir(applicationInfo.packageName).getPath();
             String libDir = Utils.getPluginLibDir(applicationInfo.packageName).getPath();
 
@@ -273,6 +274,7 @@ public class HookUtil {
             WeakReference weakReference = new WeakReference(loadedApk);
 
 //     最终目的  是要替换ClassLoader  不是替换LoaderApk
+            //这里放进去的是插件的包名
             mPackages.put(applicationInfo.packageName,weakReference);
         } catch (Exception e) {
             e.printStackTrace();
