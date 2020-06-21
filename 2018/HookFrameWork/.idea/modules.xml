@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/2018-HookFrameWork.iml" filepath="$PROJECT_DIR$/2018-HookFrameWork.iml" group="HookFrameWork" />
       <module fileurl="file://$PROJECT_DIR$/HookFrameWork.iml" filepath="$PROJECT_DIR$/HookFrameWork.iml" group="HookFrameWork" />
+      <module fileurl="file://$PROJECT_DIR$/app/HookFrameWork-app.iml" filepath="$PROJECT_DIR$/app/HookFrameWork-app.iml" group="HookFrameWork/app" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="HookFrameWork/app" />
     </modules>
   </component>

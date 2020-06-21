@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/2018-BinderFramwork.iml" filepath="$PROJECT_DIR$/2018-BinderFramwork.iml" group="BinderFramwork" />
       <module fileurl="file://$PROJECT_DIR$/BinderFramwork.iml" filepath="$PROJECT_DIR$/BinderFramwork.iml" group="BinderFramwork" />
+      <module fileurl="file://$PROJECT_DIR$/app/BinderFramwork-app.iml" filepath="$PROJECT_DIR$/app/BinderFramwork-app.iml" group="BinderFramwork/app" />
+      <module fileurl="file://$PROJECT_DIR$/otherproesss/BinderFramwork-otherproesss.iml" filepath="$PROJECT_DIR$/otherproesss/BinderFramwork-otherproesss.iml" group="BinderFramwork/otherproesss" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="BinderFramwork/app" />
       <module fileurl="file://$PROJECT_DIR$/otherproesss/otherproesss.iml" filepath="$PROJECT_DIR$/otherproesss/otherproesss.iml" group="BinderFramwork/otherproesss" />
     </modules>

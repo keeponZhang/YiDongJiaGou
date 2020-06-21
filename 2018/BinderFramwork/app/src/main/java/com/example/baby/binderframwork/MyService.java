@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 /**
  * Created by baby on 2018/4/4.
@@ -37,6 +38,8 @@ public class MyService extends Service {
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
-        return new MyAppIml();
+        MyAppIml myAppIml = new MyAppIml();
+        Log.e("TAG", "MyService onBind myAppIml:"+myAppIml );
+        return myAppIml;
     }
 }
