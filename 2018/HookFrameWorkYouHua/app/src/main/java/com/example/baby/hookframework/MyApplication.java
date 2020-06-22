@@ -33,7 +33,7 @@ public class MyApplication extends Application {
         HookUtil hookUtil = new HookUtil();
         hookUtil.hookStartActivity(this);
         hookUtil.hookHookMh(this);
-        String apkPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/plugin.apk";
+        String apkPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/plugin-debug.apk";
         hookUtil.putLoadedApk(apkPath);
 //        hookUtil.injectPluginClass();  抛弃了的
 //        重构

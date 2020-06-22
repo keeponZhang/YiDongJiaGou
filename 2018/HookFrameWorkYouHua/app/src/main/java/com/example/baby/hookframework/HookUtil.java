@@ -125,7 +125,9 @@ public class HookUtil {
 //                    集中式登录
                     SharedPreferences share = context.getSharedPreferences("david",
                             Context.MODE_PRIVATE);
-                    if (share.getBoolean("login",false)) {
+                    boolean login = share.getBoolean("login", false);
+                    Log.e("TAG", "ActivityMH handleLuachActivity login:" +login);
+                    if (login) {
 
 //                      登录  还原  把原有的意图    放到realyIntent   SecondeActivity
                         realyIntent.setComponent(oldIntent.getComponent());
@@ -135,8 +137,10 @@ public class HookUtil {
                         realyIntent.putExtra("extraIntent", oldIntent.getComponent()
                                 .getClassName());
                         realyIntent.setComponent(componentName);
+                        Log.e("TAG", "ActivityMH handleLuachActivity--------:" );
                     }
-                    realyIntent.setComponent(oldIntent.getComponent());
+                    //这个不能注释，不然跳到login会崩溃
+                    // realyIntent.setComponent(oldIntent.getComponent());
 
                     Field activityInfoField= obj.getClass().getDeclaredField("activityInfo");
                     activityInfoField.setAccessible(true);

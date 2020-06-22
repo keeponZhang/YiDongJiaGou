@@ -21,7 +21,11 @@ public class IPackageManagerHandler implements InvocationHandler
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         if (method.getName().equals("getPackageInfo")) {
-            return new PackageInfo();
+            if(args!=null&&args.length>0&&args[0].equals("com.dongnao.barry.plugin")){
+                Log.e("TAG", "IPackageManagerHandler invoke:" );
+                return new PackageInfo();
+            }
+
         }
         return  method.invoke(mBase,args);
     }

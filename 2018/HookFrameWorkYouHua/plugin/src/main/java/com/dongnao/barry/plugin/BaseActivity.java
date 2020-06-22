@@ -13,9 +13,9 @@ public class BaseActivity extends Activity{
 
     @Override
     public Resources getResources() {
-        Log.e("TAG", "BaseActivity getResources:" );
+        Log.d("TAG", "BaseActivity getResources:" );
         if (getApplication() != null && getApplication().getResources() != null) {
-            Log.e("TAG", "BaseActivity getResources:" +getApplication().getResources());
+            Log.d("TAG", "BaseActivity getResources:" +getApplication().getResources());
             return getApplication().getResources();
         }
         return super.getResources();
