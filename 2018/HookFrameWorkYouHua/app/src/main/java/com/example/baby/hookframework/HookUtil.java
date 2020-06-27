@@ -147,6 +147,7 @@ public class HookUtil {
                     ActivityInfo activityInfo= (ActivityInfo) activityInfoField.get(obj);
 //              插件的class  packageName--->loadeApk   系统   第一次 IPackageManager ----》activitry  -——》包名   ---》
 //                    不够 IPackageManage.getPackageInfo()
+                    //这个为了从key中能拿到
                     activityInfo.applicationInfo.packageName = oldIntent.getPackage() == null ? oldIntent.getComponent().getPackageName()
                             : oldIntent.getPackage();
                     hookPackgeManager();
