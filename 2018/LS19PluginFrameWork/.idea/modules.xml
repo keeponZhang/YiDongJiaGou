@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/2018-LS19PluginFrameWork.iml" filepath="$PROJECT_DIR$/2018-LS19PluginFrameWork.iml" group="LS19PluginFrameWork" />
       <module fileurl="file://$PROJECT_DIR$/LS19PluginFrameWork.iml" filepath="$PROJECT_DIR$/LS19PluginFrameWork.iml" group="LS19PluginFrameWork" />
+      <module fileurl="file://$PROJECT_DIR$/app/LS19PluginFrameWork-app.iml" filepath="$PROJECT_DIR$/app/LS19PluginFrameWork-app.iml" group="LS19PluginFrameWork/app" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="LS19PluginFrameWork/app" />
     </modules>
   </component>

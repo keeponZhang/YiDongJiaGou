@@ -4,7 +4,9 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.content.pm.ActivityInfo;
 import android.os.IBinder;
+import android.os.RemoteException;
 
 import com.dongnao.ls19pluginframework.pluigin.pm.IPluiginManager;
 
@@ -59,5 +61,11 @@ public class PluginManager implements ServiceConnection {
         }  catch (Exception e) {
         }
         return -1;
+    }
+    public ActivityInfo resolveActivityInfo(Intent intent, int flags) throws RemoteException {
+        if (mPluginManager != null) {
+            return mPluginManager.getActivityInfo(intent.getComponent(), flags);
+        }
+        return null;
     }
 }

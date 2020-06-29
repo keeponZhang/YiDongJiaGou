@@ -50,6 +50,19 @@ public class PluginPackageMap {
     //宿主的包名信息
     private PackageInfo mHostPackageInfo;
 
+    public String getmPackageName() {
+        return mPackageName;
+    }
+    public ActivityInfo getActivityInfo(ComponentName className, int flags) throws Exception {
+        ActivityInfo activityInfo;
+        activityInfo = mActivityInfoCache.get(className);
+        fixApplicationInfo(activityInfo.applicationInfo);
+        if (TextUtils.isEmpty(activityInfo.processName)) {
+            activityInfo.processName = activityInfo.packageName;
+            return activityInfo;
+        }
+        return null;
+    }
 
     public PluginPackageMap(Context hostContext, File pluginFile) throws Exception {
         mHostContext = hostContext;
@@ -68,6 +81,7 @@ public class PluginPackageMap {
 
 //值
             mActivityObjCache.put(componentName, activity);
+            //这个是有缺陷的，packageName是插件的
             ActivityInfo value = mParser.generateActivityInfo(activity, 0);
             fixApplicationInfo(value.applicationInfo);
             if (TextUtils.isEmpty(value.processName)) {
@@ -80,6 +94,55 @@ public class PluginPackageMap {
 
 
 
+        }
+
+        datas = mParser.getServices();
+        for (Object data : datas) {
+            ComponentName componentName = new ComponentName(mPackageName, mParser.readNameFromComponent(data));
+            mServiceObjCache.put(componentName, data);
+            ServiceInfo value = mParser.generateServiceInfo(data, 0);
+            fixApplicationInfo(value.applicationInfo);
+            if (TextUtils.isEmpty(value.processName)) {
+                value.processName = value.packageName;
+            }
+            mServiceInfoCache.put(componentName, value);
+            List<IntentFilter> filters = mParser.readIntentFilterFromComponent(data);
+            mServiceIntentFilterCache.remove(componentName);
+            mServiceIntentFilterCache.put(componentName, new ArrayList<IntentFilter>(filters));
+        }
+
+        datas = mParser.getProviders();
+        for (Object data : datas) {
+            ComponentName componentName = new ComponentName(mPackageName, mParser.readNameFromComponent(data));
+            mProviderObjCache.put(componentName, data);
+            ProviderInfo value = mParser.generateProviderInfo(data, 0);
+            fixApplicationInfo(value.applicationInfo);
+            if (TextUtils.isEmpty(value.processName)) {
+                value.processName = value.packageName;
+            }
+            mProviderInfoCache.put(componentName, value);
+
+            List<IntentFilter> filters = mParser.readIntentFilterFromComponent(data);
+            mProviderIntentFilterCache.remove(componentName);
+            mProviderIntentFilterCache.put(componentName, new ArrayList<IntentFilter>(filters));
+        }
+
+        datas = mParser.getReceivers();
+        for (Object data : datas) {
+            ComponentName componentName = new ComponentName(mPackageName, mParser.readNameFromComponent(data));
+            mReceiversObjCache.put(componentName, data);
+
+            ActivityInfo value = mParser.generateActivityInfo(data, 0);
+            fixApplicationInfo(value.applicationInfo);
+            if (TextUtils.isEmpty(value.processName)) {
+                value.processName = value.packageName;
+            }
+            mReceiversInfoCache.put(componentName, value);
+
+
+            List<IntentFilter> filters = mParser.readIntentFilterFromComponent(data);
+            mReceiverIntentFilterCache.remove(componentName);
+            mReceiverIntentFilterCache.put(componentName, new ArrayList<IntentFilter>(filters));
         }
 
     }
@@ -95,6 +158,7 @@ public class PluginPackageMap {
         if (applicationInfo.dataDir == null) {
             applicationInfo.dataDir = PluginDirHelper.getPluginDataDir(mHostContext, applicationInfo.packageName);
         }
+        //这个一定要是系统的
         applicationInfo.uid = mHostPackageInfo.applicationInfo.uid;
         if (applicationInfo.nativeLibraryDir == null) {
             applicationInfo.nativeLibraryDir = PluginDirHelper.getPluginNativeLibraryDir(mHostContext, applicationInfo.packageName);

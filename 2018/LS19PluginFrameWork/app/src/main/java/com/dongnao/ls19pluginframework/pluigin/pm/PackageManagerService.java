@@ -23,7 +23,9 @@ import com.dongnao.ls19pluginframework.pluigin.utils.reflect.PluginDirHelper;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Administrator on 2018/4/13.
@@ -35,7 +37,8 @@ public class PackageManagerService extends  IPluiginManager.Stub {
     public PackageManagerService(Context mContext) {
         this.mContext = mContext;
     }
-
+    //   安装的插件 20           同时运行的插件 5
+    private Map<String, PluginPackageMap> pluginAllMap = new HashMap<>(20);
     public void main() {
 //        PMS 服务  安装了app  将acitvity 所对应的ActivityInfo  ----》、缓存表 ---》
 //        app----》app  intent
@@ -77,6 +80,7 @@ public class PackageManagerService extends  IPluiginManager.Stub {
                 try {
 //                    PackageParser packageParser = PackageParserManager.getInstance().getPluginParser(mContext);
                     PluginPackageMap pluginPackageMap = new PluginPackageMap(mContext, pluginFile);
+                    pluginAllMap.put(pluginPackageMap.getmPackageName(), pluginPackageMap);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -107,6 +111,15 @@ public class PackageManagerService extends  IPluiginManager.Stub {
 
     @Override
     public ActivityInfo getActivityInfo(ComponentName className, int flags) throws RemoteException {
+        // 总表 map
+        PluginPackageMap pluginPackageMap=pluginAllMap.get(className.getPackageName());
+        if (pluginPackageMap != null) {
+            try {
+                return pluginPackageMap.getActivityInfo(className, flags);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
         return null;
     }
 
