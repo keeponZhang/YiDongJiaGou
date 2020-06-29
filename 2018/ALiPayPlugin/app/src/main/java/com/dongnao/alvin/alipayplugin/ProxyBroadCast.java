@@ -17,6 +17,7 @@ public class ProxyBroadCast extends BroadcastReceiver {
     //插件里面的广播
     PayInterfaceBroadcast payInterfaceBroadcast;
     public ProxyBroadCast(String className,Context context) {
+        //这里是代理receiver的className
         this.className = className;
         try {
             Class loadClass = PluginManager.getInstance().getDexClassLoader().loadClass(className);

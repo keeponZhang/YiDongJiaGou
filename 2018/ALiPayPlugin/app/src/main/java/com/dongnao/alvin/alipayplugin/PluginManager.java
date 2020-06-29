@@ -73,6 +73,7 @@ public class PluginManager {
         // parseReceivers(context, path);
     }
 
+    //注册静态广播（这个path是关键，这里是插件的路径，还有dexClassLoader）
     private void parseReceivers(Context context, String path) {
 
 //        Package对象
