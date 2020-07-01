@@ -2,6 +2,7 @@ package com.dongnao.ls19pluginframework.pluigin.hook.hookImpl;
 
 import android.content.Context;
 import android.os.Handler;
+import android.util.Log;
 
 import com.dongnao.ls19pluginframework.pluigin.hook.base.BaseClassHandle;
 import com.dongnao.ls19pluginframework.pluigin.hook.base.BaseHook;
@@ -44,9 +45,10 @@ public class IActivityThreadHandlerHook extends   BaseHook {
             Field callbackField = Handler.class.getDeclaredField("mCallback");
             callbackField.setAccessible(true);
 
-            callbackField.set(mH,new ActivityMH(mH));
+            callbackField.set(mH,new ActivityMH(context,mH));
         } catch (Exception e) {
             e.printStackTrace();
+            Log.e("TAG", "IActivityThreadHandlerHook onInit Exception:");
         }
     }
 }

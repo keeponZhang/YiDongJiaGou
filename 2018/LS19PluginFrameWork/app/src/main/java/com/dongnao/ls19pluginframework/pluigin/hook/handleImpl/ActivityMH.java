@@ -23,8 +23,9 @@ public class ActivityMH  implements Handler.Callback{
 
     private  Handler mH;
 
-    public ActivityMH(Context context) {
+    public ActivityMH(Context context,Handler mH) {
         this.context = context;
+        this.mH = mH;
     }
 
     private Context context;
@@ -38,9 +39,11 @@ public class ActivityMH  implements Handler.Callback{
 //LAUNCH_ACTIVITY ==100 即将要加载一个activity了
         if (msg.what == 100) {
 //加工 --完  一定丢给系统  secondActivity  -hook->proxyActivity---hook->    secondeActivtiy   2
+            Log.e("TAG", "ActivityMH handleMessage:");
             handleLuachActivity(msg);
         }
 //做了真正的跳转
+        Log.e("TAG", "ActivityMH handleMessage mH:"+mH);
         mH.handleMessage(msg);
         return  true;
     }
@@ -65,7 +68,7 @@ public class ActivityMH  implements Handler.Callback{
 //                    不够 IPackageManage.getPackageInfo()
                 activityInfo.applicationInfo.packageName = oldIntent.getPackage() == null ? oldIntent.getComponent().getPackageName()
                         : oldIntent.getPackage();
-                Log.e("TAG", "ActivityMH handleLuachActivity:"+oldIntent.getComponent());
+                Log.w("TAG", "ActivityMH handleLuachActivity:"+oldIntent.getComponent());
                 PluginCoreProcessManager.preLoadApk(context, oldIntent.getComponent());
             }
         } catch (Exception e) {
