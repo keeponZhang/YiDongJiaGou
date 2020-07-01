@@ -14,6 +14,7 @@ import android.content.pm.ProviderInfo;
 import android.content.pm.ResolveInfo;
 import android.content.pm.ServiceInfo;
 import android.os.RemoteException;
+import android.util.Log;
 
 import com.dongnao.ls19pluginframework.pluigin.parser.PackageParser;
 import com.dongnao.ls19pluginframework.pluigin.parser.PackageParserManager;
@@ -81,6 +82,7 @@ public class PackageManagerService extends  IPluiginManager.Stub {
 //                    PackageParser packageParser = PackageParserManager.getInstance().getPluginParser(mContext);
                     PluginPackageMap pluginPackageMap = new PluginPackageMap(mContext, pluginFile);
                     pluginAllMap.put(pluginPackageMap.getmPackageName(), pluginPackageMap);
+                    Log.e("TAG", "PackageManagerService onCreateInnner-------------:");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -205,6 +207,12 @@ public class PackageManagerService extends  IPluiginManager.Stub {
 
     @Override
     public ApplicationInfo getApplicationInfo(String packageName, int flags) throws RemoteException {
+        PluginPackageMap prase = pluginAllMap.get(packageName);
+        try {
+            return prase.getApplicationInfo(0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
@@ -223,6 +231,8 @@ public class PackageManagerService extends  IPluiginManager.Stub {
         try {
 //            ----------------解析----------
             PluginPackageMap pluginPackageMap = new PluginPackageMap(mContext,new File(apkfile));;
+            Log.e("TAG", "PackageManagerService installPackage:");
+            pluginAllMap.put(pluginPackageMap.getmPackageName(), pluginPackageMap);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -257,9 +267,21 @@ public class PackageManagerService extends  IPluiginManager.Stub {
 
     @Override
     public ActivityInfo selectStubActivityInfoByIntent(Intent targetIntent) throws RemoteException {
+        //        根据intent 插件  ActivityInfo     ---》mainActivity    ActivityInfo  包名 类名  启动模式   缓存表
+        ActivityInfo ai= getActivityInfo(targetIntent.getComponent(), 0);
+        Log.e("TAG", "PackageManagerService selectStubActivityInfoByIntent:");
+
+//       代理的activity  ActivtiyInfo  宿主的
+        if (ai != null) {
+            selectProxyActivity(ai);
+        }
+
         return null;
     }
+    //入口
+    private void selectProxyActivity(ActivityInfo ai) {
 
+    }
     @Override
     public ServiceInfo selectStubServiceInfo(ServiceInfo targetInfo) throws RemoteException {
         return null;

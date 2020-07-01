@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     >
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="先启动插件服务"
+        android:gravity="center"
+        android:onClick="start"
+        />
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,8 +25,8 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="启动插件服务"
+        android:text="跳转到插件的Activity"
         android:gravity="center"
-        android:onClick="start"
+        android:onClick="jump"
         />
 </LinearLayout>

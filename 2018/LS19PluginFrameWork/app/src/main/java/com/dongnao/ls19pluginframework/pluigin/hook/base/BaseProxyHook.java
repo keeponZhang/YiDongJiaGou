@@ -1,5 +1,7 @@
 package com.dongnao.ls19pluginframework.pluigin.hook.base;
 
+import android.util.Log;
+
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
@@ -14,16 +16,18 @@ public  abstract class BaseProxyHook extends  BaseHook implements InvocationHand
 
     @Override
     public Object invoke(Object o, Method method, Object[] args) throws Throwable {
+        Log.e("TAG", "-----------BaseProxyHook invoke:"+method.getName());
 //        分发总站     startActivity（宿主 OneActivity）
         if (!isEnable()) {
             return method.invoke(realObj, method, args);
         }
 //        //策略模式  2  classHandle：IActivityManagerClassHandle
         BaseMethodHandle baseMethodHandle = classHandle.getHookMethodHandler(method.getName());
+        // Log.d("TAG", "BaseProxyHook invoke baseMethodHandle:"+baseMethodHandle);
         if (baseMethodHandle != null) {
-            baseMethodHandle.doHookInnner(realObj, method, args);
+            return baseMethodHandle.doHookInnner(realObj, method, args);
         }
 
-        return null;
+        return method.invoke(realObj, method, (Object) args);
     }
 }

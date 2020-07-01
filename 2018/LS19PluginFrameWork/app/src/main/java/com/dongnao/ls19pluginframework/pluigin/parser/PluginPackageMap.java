@@ -71,6 +71,7 @@ public class PluginPackageMap {
         mParser.parsePackage(pluginFile, 0);
 //        插件的包名
         mPackageName=mParser.getPackageName();
+        mHostPackageInfo = mHostContext.getPackageManager().getPackageInfo(mHostContext.getPackageName(), 0);
 //        Activity  缩略信息
         List datas=mParser.getActivities();
         for (Object activity : datas) {
@@ -169,6 +170,14 @@ public class PluginPackageMap {
         return applicationInfo;
     }
 
+    public ApplicationInfo getApplicationInfo(int flags) throws Exception {
+        ApplicationInfo applicationInfo = mParser.generateApplicationInfo(flags);
+        fixApplicationInfo(applicationInfo);
+        if (TextUtils.isEmpty(applicationInfo.processName)) {
+            applicationInfo.processName = applicationInfo.packageName;
+        }
+        return applicationInfo;
+    }
 
 
 }

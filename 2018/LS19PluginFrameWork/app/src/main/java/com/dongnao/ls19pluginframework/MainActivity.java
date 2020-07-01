@@ -1,5 +1,6 @@
 package com.dongnao.ls19pluginframework;
 
+import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Environment;
@@ -29,6 +30,14 @@ public class MainActivity extends AppCompatActivity {
     public void start(View view) {
         PluginManager.getInstance().init(this.getApplicationContext());
         PluginManager.getInstance().connectToService();
+
+    }
+    public void jump(View view) {
+//        MainActivity   单独开房间
+        Intent intent = new Intent();
+        intent.setComponent(new ComponentName("com.dongnao.barry.plugin",
+                "com.dongnao.barry.plugin.SceondActivity"));
+        startActivity(intent);
 
     }
 }

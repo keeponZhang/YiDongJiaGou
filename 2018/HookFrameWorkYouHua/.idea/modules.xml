@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/2018-HookFrameWorkYouHua.iml" filepath="$PROJECT_DIR$/2018-HookFrameWorkYouHua.iml" group="HookFrameWorkYouHua" />
       <module fileurl="file://$PROJECT_DIR$/HookFrameWorkYouHua.iml" filepath="$PROJECT_DIR$/HookFrameWorkYouHua.iml" group="HookFrameWorkYouHua" />
+      <module fileurl="file://$PROJECT_DIR$/app/HookFrameWorkYouHua-app.iml" filepath="$PROJECT_DIR$/app/HookFrameWorkYouHua-app.iml" group="HookFrameWorkYouHua/app" />
+      <module fileurl="file://$PROJECT_DIR$/plugin/HookFrameWorkYouHua-plugin.iml" filepath="$PROJECT_DIR$/plugin/HookFrameWorkYouHua-plugin.iml" group="HookFrameWorkYouHua/plugin" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="HookFrameWorkYouHua/app" />
       <module fileurl="file://$PROJECT_DIR$/plugin/plugin.iml" filepath="$PROJECT_DIR$/plugin/plugin.iml" group="HookFrameWorkYouHua/plugin" />
     </modules>

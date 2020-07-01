@@ -1,9 +1,12 @@
 package com.dongnao.ls19pluginframework.pluigin;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.dongnao.ls19pluginframework.pluigin.hook.base.BaseHook;
 import com.dongnao.ls19pluginframework.pluigin.hook.hookImpl.IActivityManagerHook;
+import com.dongnao.ls19pluginframework.pluigin.hook.hookImpl.IActivityThreadHandlerHook;
+import com.dongnao.ls19pluginframework.pluigin.hook.hookImpl.IPackageManagerHook;
 
 import java.lang.reflect.Method;
 
@@ -36,9 +39,12 @@ public class HookFactory {
         if(!isPluginService(context)){
 //            宿主进程
             installHook(new IActivityManagerHook(), classLoader);
+            installHook(new IPackageManagerHook(), classLoader);
+            installHook(new IActivityThreadHandlerHook(context), classLoader);
+            Log.e("TAG", "HookFactory installHook--------------:"+ getProcessName(context));
         }else {
 //            插件进程
-
+            Log.e("TAG", "HookFactory installHook 插件进程:");
 
         }
     }
@@ -65,7 +71,7 @@ public class HookFactory {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return null;
+        return processName;
     }
 
 

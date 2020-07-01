@@ -13,6 +13,6 @@ public class MyApplication extends Application{
     public void onCreate() {
         super.onCreate();
         //插件  又会调用一次
-        HookFactory.getInstance().installHook(this,this.getClassLoader());
+        // HookFactory.getInstance().installHook(this,this.getClassLoader());
     }
 }

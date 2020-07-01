@@ -14,7 +14,7 @@ public abstract class BaseHook  {
     protected  BaseClassHandle classHandle;
 
     //    开启关闭
-    public boolean isEnable = false;
+    public boolean isEnable = true;
 
 
     public boolean isEnable() {

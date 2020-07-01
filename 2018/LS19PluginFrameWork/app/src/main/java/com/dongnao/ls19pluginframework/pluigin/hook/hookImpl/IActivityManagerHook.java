@@ -1,5 +1,6 @@
 package com.dongnao.ls19pluginframework.pluigin.hook.hookImpl;
 
+import android.util.Log;
 import android.view.View;
 
 import com.dongnao.ls19pluginframework.pluigin.hook.base.BaseClassHandle;
@@ -48,6 +49,7 @@ public class IActivityManagerHook  extends BaseProxyHook {
                 mInstance.set(defaltValue, oldIactivityManager);
             } catch (Exception e) {
                 e.printStackTrace();
+                Log.e("TAG", "IActivityManagerHook onInit Exception:");
             }
     }
 

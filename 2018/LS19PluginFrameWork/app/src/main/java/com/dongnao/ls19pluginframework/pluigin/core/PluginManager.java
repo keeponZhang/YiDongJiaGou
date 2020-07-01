@@ -5,8 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.pm.ActivityInfo;
+import android.content.pm.ApplicationInfo;
 import android.os.IBinder;
 import android.os.RemoteException;
+import android.widget.Toast;
 
 import com.dongnao.ls19pluginframework.pluigin.pm.IPluiginManager;
 
@@ -15,6 +17,7 @@ import com.dongnao.ls19pluginframework.pluigin.pm.IPluiginManager;
  */
 
 public class PluginManager implements ServiceConnection {
+    //这个是PackageManagerService的代理对象
     private IPluiginManager mPluginManager;
 
     private Context mHostContext;
@@ -44,6 +47,7 @@ public class PluginManager implements ServiceConnection {
     @Override
     public void onServiceConnected(ComponentName name, IBinder service) {
         mPluginManager = IPluiginManager.Stub.asInterface(service);
+        Toast.makeText(mHostContext,"启动服务成功",Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -55,16 +59,38 @@ public class PluginManager implements ServiceConnection {
         try {
             if (mPluginManager != null) {
                 int result = mPluginManager.installPackage(filepath, flags);
+                Toast.makeText(mHostContext,"安装插件成功",Toast.LENGTH_LONG).show();
                 return result;
-            } else {
             }
         }  catch (Exception e) {
+
         }
         return -1;
     }
     public ActivityInfo resolveActivityInfo(Intent intent, int flags) throws RemoteException {
         if (mPluginManager != null) {
             return mPluginManager.getActivityInfo(intent.getComponent(), flags);
+        }
+        return null;
+    }
+    public ApplicationInfo getApplicationInfo(ComponentName componentName, int flag) {
+
+        if (mPluginManager != null) {
+            try {
+                return mPluginManager.getApplicationInfo(componentName.getPackageName(), flag);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
+        }
+        return  null;
+    }
+    public ActivityInfo selectProxyActivity(Intent intent) {
+        if (mPluginManager!=null) {
+            try {
+                return  mPluginManager.selectStubActivityInfoByIntent(intent);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
         }
         return null;
     }
