@@ -9,8 +9,8 @@ import java.lang.reflect.Method;
 
 //这个是个InvocationHandler
 public  abstract class BaseProxyHook extends  BaseHook implements InvocationHandler {
-    @Override
-    public abstract  void onInit(ClassLoader classLoader);
+    // @Override
+    // public abstract  void onInit(ClassLoader classLoader);
 
     @Override
     public Object invoke(Object o, Method method, Object[] args) throws Throwable {

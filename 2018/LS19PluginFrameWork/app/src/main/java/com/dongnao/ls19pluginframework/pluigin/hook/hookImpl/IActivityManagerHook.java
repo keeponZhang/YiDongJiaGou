@@ -36,6 +36,7 @@ public class IActivityManagerHook  extends BaseProxyHook {
 //        还原 IactivityManager对象  系统对象
                 mInstance.setAccessible(true);
                 Object iActivityManagerObject = mInstance.get(defaltValue);
+                //要给他传真正的对象
                 setRealObj(iActivityManagerObject);
 //
                 Class<?> IActivityManagerIntercept = Class.forName("android.app.IActivityManager");

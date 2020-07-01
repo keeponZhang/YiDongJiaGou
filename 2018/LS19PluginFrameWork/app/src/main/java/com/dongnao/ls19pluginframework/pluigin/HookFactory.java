@@ -22,7 +22,7 @@ public class HookFactory {
 
 
     //这里用BaseHook当方法参数，实际上调用的是具体类的onInit方法
-    public void installHook(BaseHook baseHook, ClassLoader classLoader) {
+    private void installHook(BaseHook baseHook, ClassLoader classLoader) {
         try {
             baseHook.onInit(classLoader);
         } catch (Exception e) {
