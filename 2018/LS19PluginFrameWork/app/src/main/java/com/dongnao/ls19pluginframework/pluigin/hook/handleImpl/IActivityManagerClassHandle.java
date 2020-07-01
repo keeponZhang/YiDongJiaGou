@@ -24,13 +24,6 @@ public class IActivityManagerClassHandle extends BaseClassHandle {
 
 
 
-    public static ActivityInfo resolveActivity(Intent intent) {
-        try {
-            return  PluginManager.getInstance().resolveActivityInfo( intent,0);
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
+
 
 }

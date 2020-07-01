@@ -3,8 +3,11 @@ package com.dongnao.ls19pluginframework.pluigin.hook.handleImpl;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.os.RemoteException;
 
 import com.dongnao.ls19pluginframework.pluigin.activity.ProxyActivity;
+import com.dongnao.ls19pluginframework.pluigin.core.PluginManager;
 import com.dongnao.ls19pluginframework.pluigin.hook.base.BaseMethodHandle;
 
 import java.lang.reflect.Method;
@@ -33,6 +36,7 @@ public class StartActivityMethodHandle extends BaseMethodHandle {
         int intentOfArgIndex = findFirstIntentIndexInArgs(args);
         if (args != null && args.length > 1 && intentOfArgIndex >= 0) {
             Intent intent = (Intent) args[intentOfArgIndex];
+            ActivityInfo activityInfo = resolveActivity(intent);
 //        包名   ----     ActivityInfo  MainAcitivty
         }
 //瞒天过海
@@ -40,7 +44,7 @@ public class StartActivityMethodHandle extends BaseMethodHandle {
         Intent intent = null;
         int index = 0;
 
-//目的  ---载入acgtivity  将它还原
+//目的  ---载入activity  将它还原
         Intent newIntent = new Intent();
         ComponentName componentName = new ComponentName(mHostContext, ProxyActivity.class);
         newIntent.setComponent(componentName);
@@ -54,5 +58,14 @@ public class StartActivityMethodHandle extends BaseMethodHandle {
     @Override
     protected void afterInvoke(Object receiver, Method method, Object[] args) {
         super.afterInvoke(receiver, method, args);
+    }
+
+    public static ActivityInfo resolveActivity(Intent intent) {
+        try {
+            return  PluginManager.getInstance().resolveActivityInfo( intent,0);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
