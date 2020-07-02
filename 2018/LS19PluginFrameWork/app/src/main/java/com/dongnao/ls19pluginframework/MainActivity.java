@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 //        MainActivity   单独开房间
         Intent intent = new Intent();
         intent.setComponent(new ComponentName("com.dongnao.barry.plugin",
-                "com.dongnao.barry.plugin.SceondActivity"));
+                "com.dongnao.barry.plugin.MainActivity"));
         startActivity(intent);
 
     }

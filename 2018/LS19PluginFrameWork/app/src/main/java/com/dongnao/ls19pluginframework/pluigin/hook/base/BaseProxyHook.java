@@ -16,10 +16,10 @@ public  abstract class BaseProxyHook extends  BaseHook implements InvocationHand
 
     @Override
     public Object invoke(Object o, Method method, Object[] args) throws Throwable {
-        Log.e("TAG", "-----------BaseProxyHook invoke:"+method.getName());
+        Log.d("TAG", "-----------BaseProxyHook invoke:"+method.getName());
 //        分发总站     startActivity（宿主 OneActivity）
         if (!isEnable()) {
-            return method.invoke(realObj, method, args);
+            return method.invoke(realObj, args);
         }
 //        //策略模式  2  classHandle：IActivityManagerClassHandle
         BaseMethodHandle baseMethodHandle = classHandle.getHookMethodHandler(method.getName());
@@ -28,6 +28,6 @@ public  abstract class BaseProxyHook extends  BaseHook implements InvocationHand
             return baseMethodHandle.doHookInnner(realObj, method, args);
         }
 
-        return method.invoke(realObj, method, (Object) args);
+        return method.invoke(realObj,  args);
     }
 }

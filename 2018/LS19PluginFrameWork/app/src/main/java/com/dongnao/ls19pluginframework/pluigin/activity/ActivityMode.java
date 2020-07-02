@@ -6,7 +6,7 @@ import android.app.Activity;
  * Created by Administrator on 2018/4/13.
  */
 
-public class ActivityMode extends Activity {
+public class ActivityMode extends ProxyActivity {
 
     //    Standard模式是Android的默认启动模式Activity可以有多个实例，
     // 每次启动Activity，无论任务栈中是否已经有这个Activity的实例，

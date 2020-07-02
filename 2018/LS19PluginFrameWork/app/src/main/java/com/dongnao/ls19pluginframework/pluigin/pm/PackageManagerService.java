@@ -13,9 +13,11 @@ import android.content.pm.PermissionInfo;
 import android.content.pm.ProviderInfo;
 import android.content.pm.ResolveInfo;
 import android.content.pm.ServiceInfo;
+import android.os.Binder;
 import android.os.RemoteException;
 import android.util.Log;
 
+import com.dongnao.ls19pluginframework.pluigin.am.ActivityManageService;
 import com.dongnao.ls19pluginframework.pluigin.parser.PackageParser;
 import com.dongnao.ls19pluginframework.pluigin.parser.PackageParserManager;
 import com.dongnao.ls19pluginframework.pluigin.parser.PluginPackageMap;
@@ -34,9 +36,10 @@ import java.util.Map;
 
 public class PackageManagerService extends  IPluiginManager.Stub {
     private Context mContext;
-
+    ActivityManageService activityManageService;
     public PackageManagerService(Context mContext) {
         this.mContext = mContext;
+        activityManageService = new ActivityManageService(mContext);
     }
     //   安装的插件 20           同时运行的插件 5
     private Map<String, PluginPackageMap> pluginAllMap = new HashMap<>(20);
@@ -273,14 +276,14 @@ public class PackageManagerService extends  IPluiginManager.Stub {
 
 //       代理的activity  ActivtiyInfo  宿主的
         if (ai != null) {
-            selectProxyActivity(ai);
+           return selectProxyActivity(ai);
         }
 
         return null;
     }
     //入口
-    private void selectProxyActivity(ActivityInfo ai) {
-
+    private ActivityInfo selectProxyActivity(ActivityInfo ai) {
+        return activityManageService.selectStubActivityInfo(Binder.getCallingPid(),Binder.getCallingUid(),ai);
     }
     @Override
     public ServiceInfo selectStubServiceInfo(ServiceInfo targetInfo) throws RemoteException {

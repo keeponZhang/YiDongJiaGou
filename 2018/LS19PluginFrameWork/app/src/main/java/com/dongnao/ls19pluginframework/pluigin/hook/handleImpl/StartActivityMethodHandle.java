@@ -45,7 +45,11 @@ public class StartActivityMethodHandle extends BaseMethodHandle {
 //目的  ---载入acgtivity  将它还原  ProxyActivity 永远
         Intent newIntent = new Intent();
 //            分配进程
-        ComponentName componentName=selectProxyActivity(intent);
+        ComponentName componentName=
+                new ComponentName("com.dongnao.ls19pluginframework","com" +
+                ".dongnao.ls19pluginframework.pluigin.activity.ActivityMode$P01$Standard00");
+
+        // ComponentName componentName=selectProxyActivity(intent);
 //                ComponentName componentName = new ComponentName(mHostContext,ActivityMode.P02.Standard00.class);
 //            ActivityMode.P02.Standard00)  process   给你新开进程
 
@@ -60,7 +64,8 @@ public class StartActivityMethodHandle extends BaseMethodHandle {
         if (intent!= null) {
             ActivityInfo proxyInfo = PluginManager.getInstance().selectProxyActivity(intent);
             if (proxyInfo != null) {
-                return new ComponentName(proxyInfo.packageName, proxyInfo.name);
+                // return new ComponentName(proxyInfo.packageName, proxyInfo.name);
+                return new ComponentName("com.dongnao.ls19pluginframework","com.dongnao.ls19pluginframework.pluigin.activity.ActivityMode$P01$Standard00");
             }
         }
         return null;

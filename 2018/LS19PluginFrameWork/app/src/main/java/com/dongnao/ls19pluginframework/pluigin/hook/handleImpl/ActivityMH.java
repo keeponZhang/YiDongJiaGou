@@ -37,13 +37,13 @@ public class ActivityMH  implements Handler.Callback{
     @Override
     public boolean handleMessage(Message msg) {
 //LAUNCH_ACTIVITY ==100 即将要加载一个activity了
+        Log.e("TAG", "ActivityMH handleMessage:" + msg.what);
         if (msg.what == 100) {
 //加工 --完  一定丢给系统  secondActivity  -hook->proxyActivity---hook->    secondeActivtiy   2
-            Log.e("TAG", "ActivityMH handleMessage:");
             handleLuachActivity(msg);
         }
 //做了真正的跳转
-        Log.e("TAG", "ActivityMH handleMessage mH:"+mH);
+        Log.d("TAG", "ActivityMH handleMessage mH:"+mH);
         mH.handleMessage(msg);
         return  true;
     }
@@ -52,6 +52,7 @@ public class ActivityMH  implements Handler.Callback{
 //            还原   ActivityClientRecord obj
         Object obj = msg.obj;
         try {
+            Log.e("TAG", "ActivityMH handleLuachActivity---------------:");
             Field intentField=obj.getClass().getDeclaredField("intent");
             intentField.setAccessible(true);
             //  ProxyActivity   2
@@ -73,6 +74,7 @@ public class ActivityMH  implements Handler.Callback{
             }
         } catch (Exception e) {
             e.printStackTrace();
+            Log.e("TAG", "ActivityMH handleLuachActivity Exception:"+e.getMessage());
         }
     }
 }
