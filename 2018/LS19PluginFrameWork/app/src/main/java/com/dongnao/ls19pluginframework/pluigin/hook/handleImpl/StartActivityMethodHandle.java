@@ -45,12 +45,12 @@ public class StartActivityMethodHandle extends BaseMethodHandle {
 //目的  ---载入acgtivity  将它还原  ProxyActivity 永远
         Intent newIntent = new Intent();
 //            分配进程
-        ComponentName componentName=
-                new ComponentName("com.dongnao.ls19pluginframework","com" +
-                ".dongnao.ls19pluginframework.pluigin.activity.ActivityMode$P01$Standard00");
+//         ComponentName componentName=
+//                 new ComponentName("com.dongnao.ls19pluginframework","com" +
+//                 ".dongnao.ls19pluginframework.pluigin.activity.ActivityMode$P01$Standard00");
 
-        // ComponentName componentName=selectProxyActivity(intent);
-//                ComponentName componentName = new ComponentName(mHostContext,ActivityMode.P02.Standard00.class);
+        ComponentName componentName=selectProxyActivity(intent);
+               // ComponentName componentName = new ComponentName(mHostContext,ActivityMode.P02.Standard00.class);
 //            ActivityMode.P02.Standard00)  process   给你新开进程
 
         newIntent.setComponent(componentName);
@@ -62,10 +62,13 @@ public class StartActivityMethodHandle extends BaseMethodHandle {
     //intent    com.example.MainActivity    -------->    ComponentName (   ActivityMode.P02.Standard00)
     private ComponentName selectProxyActivity(Intent intent) {
         if (intent!= null) {
+            //将插件的Intent转换成插件的ActivityInfo,
+            // 自然用的是PluginManager，因为PluginManager里面有个PMS
+            // 的代理对象，就是通过调用代理对象的selectStubActivityInfoByIntent方法
             ActivityInfo proxyInfo = PluginManager.getInstance().selectProxyActivity(intent);
             if (proxyInfo != null) {
-                // return new ComponentName(proxyInfo.packageName, proxyInfo.name);
-                return new ComponentName("com.dongnao.ls19pluginframework","com.dongnao.ls19pluginframework.pluigin.activity.ActivityMode$P01$Standard00");
+                return new ComponentName(proxyInfo.packageName, proxyInfo.name);
+                // return new ComponentName("com.dongnao.ls19pluginframework","com.dongnao.ls19pluginframework.pluigin.activity.ActivityMode$P01$Standard00");
             }
         }
         return null;

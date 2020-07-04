@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.dongnao.ls19pluginframework.pluigin.core.PluginManager;
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void jump(View view) {
+        Log.e("TAG", "MainActivity jump:" );
 //        MainActivity   单独开房间
         Intent intent = new Intent();
         intent.setComponent(new ComponentName("com.dongnao.barry.plugin",

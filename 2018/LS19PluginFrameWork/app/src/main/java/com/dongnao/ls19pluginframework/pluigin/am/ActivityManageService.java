@@ -11,6 +11,7 @@ import android.content.pm.ResolveInfo;
 import android.content.pm.ServiceInfo;
 import android.os.RemoteException;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.dongnao.ls19pluginframework.pluigin.pm.IPluiginManager;
 
@@ -72,10 +73,15 @@ public class ActivityManageService {
         }
 //        进程没起来
 
+        //宿主一共预注册了几个进程
         List<String> stubProcssNames = mStaticProcessList.getProcessNames();
+        Log.e("TAG", "ActivityManageService selectStubActivityInfo 一共预注册了:"+ stubProcssNames.size());
         for (String stubProcessName : stubProcssNames) {
+            Log.e("TAG", "ActivityManageService selectStubActivityInfo stubProcessName:" +stubProcessName);
+            //拿到该进程注册的所有的ActivityInfo
             List<ActivityInfo> stubInfos = mStaticProcessList.getActivityInfoForProcessName(stubProcessName);
             if (!mRunningProcessList.isProcessRunning(stubProcessName)) {
+                Log.w("TAG", "ActivityManageService selectStubActivityInfo 进程没有运行:" );
         //进程没有运行 daivd 先一步
                 for (ActivityInfo stubInfo : stubInfos) {
                     if (stubInfo.launchMode == targetInfo.launchMode) {

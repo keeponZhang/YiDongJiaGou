@@ -151,7 +151,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:process=":PluginP02">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -166,20 +167,17 @@
             android:excludeFromRecents="true"
             android:exported="false"
             android:hardwareAccelerated="true"
+
             android:launchMode="standard"
-
-            >
-        </activity>
-
-        <activity
-            android:name=".pluigin.activity.ActivityMode$P01$SingleTask00"
-            android:allowTaskReparenting="true"
-            android:excludeFromRecents="true"
-            android:exported="false"
-            android:hardwareAccelerated="true"
-            android:launchMode="singleTask"
             android:process=":PluginP01"
-            >
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dongnao.android" />
+            </intent-filter>
+            <meta-data
+                android:name="com.morgoo.droidplugin.ACTIVITY_STUB_INDEX"
+                android:value="0" />
         </activity>
         <activity
             android:name=".pluigin.activity.ActivityMode$P01$SingleInstance00"
@@ -187,43 +185,236 @@
             android:excludeFromRecents="true"
             android:exported="false"
             android:hardwareAccelerated="true"
+
             android:launchMode="singleInstance"
             android:process=":PluginP01"
-            >
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dongnao.android" />
+            </intent-filter>
+            <meta-data
+                android:name="com.morgoo.droidplugin.ACTIVITY_STUB_INDEX"
+                android:value="0" />
         </activity>
+        <activity
+            android:name=".pluigin.activity.ActivityMode$P01$SingleInstance01"
+            android:allowTaskReparenting="true"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+
+            android:launchMode="singleInstance"
+            android:process=":PluginP01"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dongnao.android" />
+            </intent-filter>
+            <meta-data
+                android:name="com.morgoo.droidplugin.ACTIVITY_STUB_INDEX"
+                android:value="1" />
+        </activity>
+        <activity
+            android:name=".pluigin.activity.ActivityMode$P01$SingleInstance02"
+            android:allowTaskReparenting="true"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+
+            android:launchMode="singleInstance"
+            android:process=":PluginP01"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dongnao.android" />
+            </intent-filter>
+            <meta-data
+                android:name="com.morgoo.droidplugin.ACTIVITY_STUB_INDEX"
+                android:value="2" />
+        </activity>
+        <activity
+            android:name=".pluigin.activity.ActivityMode$P01$SingleInstance03"
+            android:allowTaskReparenting="true"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+
+            android:launchMode="singleInstance"
+            android:process=":PluginP01"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dongnao.android" />
+            </intent-filter>
+            <meta-data
+                android:name="com.morgoo.droidplugin.ACTIVITY_STUB_INDEX"
+                android:value="3" />
+        </activity>
+        <activity
+            android:name=".pluigin.activity.ActivityMode$P01$SingleTask00"
+            android:allowTaskReparenting="true"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+
+            android:launchMode="singleTask"
+            android:process=":PluginP01"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dongnao.android" />
+            </intent-filter>
+            <meta-data
+                android:name="com.morgoo.droidplugin.ACTIVITY_STUB_INDEX"
+                android:value="0" />
+        </activity>
+        <activity
+            android:name=".pluigin.activity.ActivityMode$P01$SingleTask01"
+            android:allowTaskReparenting="true"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+
+            android:launchMode="singleTask"
+            android:process=":PluginP01"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dongnao.android" />
+            </intent-filter>
+            <meta-data
+                android:name="com.morgoo.droidplugin.ACTIVITY_STUB_INDEX"
+                android:value="1" />
+        </activity>
+        <activity
+            android:name=".pluigin.activity.ActivityMode$P01$SingleTask02"
+            android:allowTaskReparenting="true"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+
+            android:launchMode="singleTask"
+            android:process=":PluginP01"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dongnao.android" />
+            </intent-filter>
+            <meta-data
+                android:name="com.morgoo.droidplugin.ACTIVITY_STUB_INDEX"
+                android:value="2" />
+        </activity>
+        <activity
+            android:name=".pluigin.activity.ActivityMode$P01$SingleTask03"
+            android:allowTaskReparenting="true"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+
+            android:launchMode="singleTask"
+            android:process=":PluginP01"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dongnao.android" />
+            </intent-filter>
+            <meta-data
+                android:name="com.morgoo.droidplugin.ACTIVITY_STUB_INDEX"
+                android:value="3" />
+        </activity>
+
         <activity
             android:name=".pluigin.activity.ActivityMode$P01$SingleTop00"
             android:allowTaskReparenting="true"
             android:excludeFromRecents="true"
             android:exported="false"
             android:hardwareAccelerated="true"
+
             android:launchMode="singleTop"
             android:process=":PluginP01"
-            >
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dongnao.android" />
+            </intent-filter>
+            <meta-data
+                android:name="com.morgoo.droidplugin.ACTIVITY_STUB_INDEX"
+                android:value="0" />
+        </activity>
+        <activity
+            android:name=".pluigin.activity.ActivityMode$P01$SingleTop01"
+            android:allowTaskReparenting="true"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+
+            android:launchMode="singleTop"
+            android:process=":PluginP01"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dongnao.android" />
+            </intent-filter>
+            <meta-data
+                android:name="com.morgoo.droidplugin.ACTIVITY_STUB_INDEX"
+                android:value="1" />
+        </activity>
+        <activity
+            android:name=".pluigin.activity.ActivityMode$P01$SingleTop02"
+            android:allowTaskReparenting="true"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+
+            android:launchMode="singleTop"
+            android:process=":PluginP01"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dongnao.android" />
+            </intent-filter>
+            <meta-data
+                android:name="com.morgoo.droidplugin.ACTIVITY_STUB_INDEX"
+                android:value="2" />
+        </activity>
+        <activity
+            android:name=".pluigin.activity.ActivityMode$P01$SingleTop03"
+            android:allowTaskReparenting="true"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+
+            android:launchMode="singleTop"
+            android:process=":PluginP01"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dongnao.android" />
+            </intent-filter>
+            <meta-data
+                android:name="com.morgoo.droidplugin.ACTIVITY_STUB_INDEX"
+                android:value="3" />
         </activity>
 
-
-        <!--=============================第2个房间=======================-->
+        <!--第2个进程-->
         <activity
             android:name=".pluigin.activity.ActivityMode$P02$Standard00"
             android:allowTaskReparenting="true"
             android:excludeFromRecents="true"
             android:exported="false"
             android:hardwareAccelerated="true"
+
             android:launchMode="standard"
             android:process=":PluginP02"
-            >
-        </activity>
-
-        <activity
-            android:name=".pluigin.activity.ActivityMode$P02$SingleTask00"
-            android:allowTaskReparenting="true"
-            android:excludeFromRecents="true"
-            android:exported="false"
-            android:hardwareAccelerated="true"
-            android:launchMode="singleTask"
-            android:process=":PluginP02"
-            >
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dongnao.android" />
+            </intent-filter>
+            <meta-data
+                android:name="com.morgoo.droidplugin.ACTIVITY_STUB_INDEX"
+                android:value="0" />
         </activity>
         <activity
             android:name=".pluigin.activity.ActivityMode$P02$SingleInstance00"
@@ -231,9 +422,143 @@
             android:excludeFromRecents="true"
             android:exported="false"
             android:hardwareAccelerated="true"
+
             android:launchMode="singleInstance"
             android:process=":PluginP02"
-            >
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dongnao.android" />
+            </intent-filter>
+            <meta-data
+                android:name="com.morgoo.droidplugin.ACTIVITY_STUB_INDEX"
+                android:value="0" />
+        </activity>
+        <activity
+            android:name=".pluigin.activity.ActivityMode$P02$SingleInstance01"
+            android:allowTaskReparenting="true"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+
+            android:launchMode="singleInstance"
+            android:process=":PluginP02"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dongnao.android" />
+            </intent-filter>
+            <meta-data
+                android:name="com.morgoo.droidplugin.ACTIVITY_STUB_INDEX"
+                android:value="1" />
+        </activity>
+        <activity
+            android:name=".pluigin.activity.ActivityMode$P02$SingleInstance02"
+            android:allowTaskReparenting="true"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+
+            android:launchMode="singleInstance"
+            android:process=":PluginP02"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dongnao.android" />
+            </intent-filter>
+            <meta-data
+                android:name="com.morgoo.droidplugin.ACTIVITY_STUB_INDEX"
+                android:value="2" />
+        </activity>
+        <activity
+            android:name=".pluigin.activity.ActivityMode$P02$SingleInstance03"
+            android:allowTaskReparenting="true"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+
+            android:launchMode="singleInstance"
+            android:process=":PluginP02"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dongnao.android" />
+            </intent-filter>
+            <meta-data
+                android:name="com.morgoo.droidplugin.ACTIVITY_STUB_INDEX"
+                android:value="3" />
+        </activity>
+        <activity
+            android:name=".pluigin.activity.ActivityMode$P02$SingleTask00"
+            android:allowTaskReparenting="true"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+
+            android:launchMode="singleTask"
+            android:process=":PluginP02"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dongnao.android" />
+            </intent-filter>
+            <meta-data
+                android:name="com.morgoo.droidplugin.ACTIVITY_STUB_INDEX"
+                android:value="0" />
+        </activity>
+        <activity
+            android:name=".pluigin.activity.ActivityMode$P02$SingleTask01"
+            android:allowTaskReparenting="true"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+
+            android:launchMode="singleTask"
+            android:process=":PluginP02"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dongnao.android" />
+            </intent-filter>
+            <meta-data
+                android:name="com.morgoo.droidplugin.ACTIVITY_STUB_INDEX"
+                android:value="1" />
+        </activity>
+        <activity
+            android:name=".pluigin.activity.ActivityMode$P02$SingleTask02"
+            android:allowTaskReparenting="true"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+
+            android:launchMode="singleTask"
+            android:process=":PluginP02"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dongnao.android" />
+            </intent-filter>
+            <meta-data
+                android:name="com.morgoo.droidplugin.ACTIVITY_STUB_INDEX"
+                android:value="2" />
+        </activity>
+        <activity
+            android:name=".pluigin.activity.ActivityMode$P02$SingleTask03"
+            android:allowTaskReparenting="true"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+
+            android:launchMode="singleTask"
+            android:process=":PluginP02"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dongnao.android" />
+            </intent-filter>
+            <meta-data
+                android:name="com.morgoo.droidplugin.ACTIVITY_STUB_INDEX"
+                android:value="3" />
         </activity>
         <activity
             android:name=".pluigin.activity.ActivityMode$P02$SingleTop00"
@@ -241,32 +566,94 @@
             android:excludeFromRecents="true"
             android:exported="false"
             android:hardwareAccelerated="true"
+
             android:launchMode="singleTop"
             android:process=":PluginP02"
-            >
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dongnao.android" />
+            </intent-filter>
+            <meta-data
+                android:name="com.morgoo.droidplugin.ACTIVITY_STUB_INDEX"
+                android:value="0" />
+        </activity>
+        <activity
+            android:name=".pluigin.activity.ActivityMode$P02$SingleTop01"
+            android:allowTaskReparenting="true"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+
+            android:launchMode="singleTop"
+            android:process=":PluginP02"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dongnao.android" />
+            </intent-filter>
+            <meta-data
+                android:name="com.morgoo.droidplugin.ACTIVITY_STUB_INDEX"
+                android:value="1" />
+        </activity>
+        <activity
+            android:name=".pluigin.activity.ActivityMode$P02$SingleTop02"
+            android:allowTaskReparenting="true"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+
+            android:launchMode="singleTop"
+            android:process=":PluginP02"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dongnao.android" />
+            </intent-filter>
+            <meta-data
+                android:name="com.morgoo.droidplugin.ACTIVITY_STUB_INDEX"
+                android:value="2" />
+        </activity>
+        <activity
+            android:name=".pluigin.activity.ActivityMode$P02$SingleTop03"
+            android:allowTaskReparenting="true"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+
+            android:launchMode="singleTop"
+            android:process=":PluginP02"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dongnao.android" />
+            </intent-filter>
+            <meta-data
+                android:name="com.morgoo.droidplugin.ACTIVITY_STUB_INDEX"
+                android:value="3" />
         </activity>
 
-        <!--=============================第3个房间=======================-->
+
+
+
+        <!--第3个进程-->
         <activity
             android:name=".pluigin.activity.ActivityMode$P03$Standard00"
             android:allowTaskReparenting="true"
             android:excludeFromRecents="true"
             android:exported="false"
             android:hardwareAccelerated="true"
+
             android:launchMode="standard"
             android:process=":PluginP03"
-            >
-        </activity>
-
-        <activity
-            android:name=".pluigin.activity.ActivityMode$P03$SingleTask00"
-            android:allowTaskReparenting="true"
-            android:excludeFromRecents="true"
-            android:exported="false"
-            android:hardwareAccelerated="true"
-            android:launchMode="singleTask"
-            android:process=":PluginP03"
-            >
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dongnao.android" />
+            </intent-filter>
+            <meta-data
+                android:name="com.morgoo.droidplugin.ACTIVITY_STUB_INDEX"
+                android:value="0" />
         </activity>
         <activity
             android:name=".pluigin.activity.ActivityMode$P03$SingleInstance00"
@@ -274,9 +661,143 @@
             android:excludeFromRecents="true"
             android:exported="false"
             android:hardwareAccelerated="true"
+
             android:launchMode="singleInstance"
             android:process=":PluginP03"
-            >
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dongnao.android" />
+            </intent-filter>
+            <meta-data
+                android:name="com.morgoo.droidplugin.ACTIVITY_STUB_INDEX"
+                android:value="0" />
+        </activity>
+        <activity
+            android:name=".pluigin.activity.ActivityMode$P03$SingleInstance01"
+            android:allowTaskReparenting="true"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+
+            android:launchMode="singleInstance"
+            android:process=":PluginP03"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dongnao.android" />
+            </intent-filter>
+            <meta-data
+                android:name="com.morgoo.droidplugin.ACTIVITY_STUB_INDEX"
+                android:value="1" />
+        </activity>
+        <activity
+            android:name=".pluigin.activity.ActivityMode$P03$SingleInstance02"
+            android:allowTaskReparenting="true"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+
+            android:launchMode="singleInstance"
+            android:process=":PluginP03"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dongnao.android" />
+            </intent-filter>
+            <meta-data
+                android:name="com.morgoo.droidplugin.ACTIVITY_STUB_INDEX"
+                android:value="2" />
+        </activity>
+        <activity
+            android:name=".pluigin.activity.ActivityMode$P03$SingleInstance03"
+            android:allowTaskReparenting="true"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+
+            android:launchMode="singleInstance"
+            android:process=":PluginP03"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dongnao.android" />
+            </intent-filter>
+            <meta-data
+                android:name="com.morgoo.droidplugin.ACTIVITY_STUB_INDEX"
+                android:value="3" />
+        </activity>
+        <activity
+            android:name=".pluigin.activity.ActivityMode$P03$SingleTask00"
+            android:allowTaskReparenting="true"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+
+            android:launchMode="singleTask"
+            android:process=":PluginP03"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dongnao.android" />
+            </intent-filter>
+            <meta-data
+                android:name="com.morgoo.droidplugin.ACTIVITY_STUB_INDEX"
+                android:value="0" />
+        </activity>
+        <activity
+            android:name=".pluigin.activity.ActivityMode$P03$SingleTask01"
+            android:allowTaskReparenting="true"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+
+            android:launchMode="singleTask"
+            android:process=":PluginP03"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dongnao.android" />
+            </intent-filter>
+            <meta-data
+                android:name="com.morgoo.droidplugin.ACTIVITY_STUB_INDEX"
+                android:value="1" />
+        </activity>
+        <activity
+            android:name=".pluigin.activity.ActivityMode$P03$SingleTask02"
+            android:allowTaskReparenting="true"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+
+            android:launchMode="singleTask"
+            android:process=":PluginP03"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dongnao.android" />
+            </intent-filter>
+            <meta-data
+                android:name="com.morgoo.droidplugin.ACTIVITY_STUB_INDEX"
+                android:value="2" />
+        </activity>
+        <activity
+            android:name=".pluigin.activity.ActivityMode$P03$SingleTask03"
+            android:allowTaskReparenting="true"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+
+            android:launchMode="singleTask"
+            android:process=":PluginP03"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dongnao.android" />
+            </intent-filter>
+            <meta-data
+                android:name="com.morgoo.droidplugin.ACTIVITY_STUB_INDEX"
+                android:value="3" />
         </activity>
         <activity
             android:name=".pluigin.activity.ActivityMode$P03$SingleTop00"
@@ -284,52 +805,72 @@
             android:excludeFromRecents="true"
             android:exported="false"
             android:hardwareAccelerated="true"
+
             android:launchMode="singleTop"
             android:process=":PluginP03"
-            >
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dongnao.android" />
+            </intent-filter>
+            <meta-data
+                android:name="com.morgoo.droidplugin.ACTIVITY_STUB_INDEX"
+                android:value="0" />
         </activity>
+        <activity
+            android:name=".pluigin.activity.ActivityMode$P03$SingleTop01"
+            android:allowTaskReparenting="true"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:hardwareAccelerated="true"
 
-        <!--=============================第4个房间=======================-->
-        <activity
-            android:name=".pluigin.activity.ActivityMode$P04$Standard00"
-            android:allowTaskReparenting="true"
-            android:excludeFromRecents="true"
-            android:exported="false"
-            android:hardwareAccelerated="true"
-            android:launchMode="standard"
-            android:process=":PluginP04"
-            >
-        </activity>
-
-        <activity
-            android:name=".pluigin.activity.ActivityMode$P04$SingleTask00"
-            android:allowTaskReparenting="true"
-            android:excludeFromRecents="true"
-            android:exported="false"
-            android:hardwareAccelerated="true"
-            android:launchMode="singleTask"
-            android:process=":PluginP04"
-            >
-        </activity>
-        <activity
-            android:name=".pluigin.activity.ActivityMode$P04$SingleInstance00"
-            android:allowTaskReparenting="true"
-            android:excludeFromRecents="true"
-            android:exported="false"
-            android:hardwareAccelerated="true"
-            android:launchMode="singleInstance"
-            android:process=":PluginP04"
-            >
-        </activity>
-        <activity
-            android:name=".pluigin.activity.ActivityMode$P04$SingleTop00"
-            android:allowTaskReparenting="true"
-            android:excludeFromRecents="true"
-            android:exported="false"
-            android:hardwareAccelerated="true"
             android:launchMode="singleTop"
-            android:process=":PluginP04"
+            android:process=":PluginP03"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dongnao.android" />
+            </intent-filter>
+            <meta-data
+                android:name="com.morgoo.droidplugin.ACTIVITY_STUB_INDEX"
+                android:value="1" />
+        </activity>
+        <activity
+            android:name=".pluigin.activity.ActivityMode$P03$SingleTop02"
+            android:allowTaskReparenting="true"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+
+            android:launchMode="singleTop"
+            android:process=":PluginP03"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dongnao.android" />
+            </intent-filter>
+            <meta-data
+                android:name="com.morgoo.droidplugin.ACTIVITY_STUB_INDEX"
+                android:value="2" />
+        </activity>
+        <activity
+            android:name=".pluigin.activity.ActivityMode$P03$SingleTop03"
+            android:allowTaskReparenting="true"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+
+            android:launchMode="singleTop"
+            android:process=":PluginP03"
+            android:theme="@style/AppTheme"
             >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.dongnao.android" />
+            </intent-filter>
+            <meta-data
+                android:name="com.morgoo.droidplugin.ACTIVITY_STUB_INDEX"
+                android:value="3" />
         </activity>
     </application>
 

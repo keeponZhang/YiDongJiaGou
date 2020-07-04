@@ -70,7 +70,9 @@ public class ActivityMH  implements Handler.Callback{
 //                    不够 IPackageManage.getPackageInfo()
                 activityInfo.applicationInfo.packageName = oldIntent.getPackage() == null ? oldIntent.getComponent().getPackageName()
                         : oldIntent.getPackage();
-                Log.w("TAG", "ActivityMH handleLuachActivity:"+oldIntent.getComponent());
+                Log.w("TAG",
+                        "ActivityMH handleLuachActivity:"+oldIntent.getComponent()+" " +
+                                " getProcessName="+HookFactory.getProcessName(context));
                 PluginCoreProcessManager.preLoadApk(context, oldIntent.getComponent());
             }
         } catch (Exception e) {

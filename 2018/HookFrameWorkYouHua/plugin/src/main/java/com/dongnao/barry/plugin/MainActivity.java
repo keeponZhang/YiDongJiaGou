@@ -1,7 +1,9 @@
 package com.dongnao.barry.plugin;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -12,5 +14,9 @@ public class MainActivity extends AppCompatActivity {
 //        this.getSystemService("")
 //      上下文是如何注入到插件的
 
+    }
+
+    public void jump(View view) {
+        startActivity(new Intent(this,SceondActivity.class));
     }
 }

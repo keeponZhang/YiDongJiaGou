@@ -273,11 +273,14 @@ public class PackageManagerService extends  IPluiginManager.Stub {
     public ActivityInfo selectStubActivityInfoByIntent(Intent targetIntent) throws RemoteException {
         //        根据intent 插件  ActivityInfo     ---》mainActivity    ActivityInfo  包名 类名  启动模式   缓存表
         ActivityInfo ai= getActivityInfo(targetIntent.getComponent(), 0);
-        Log.e("TAG", "PackageManagerService selectStubActivityInfoByIntent:");
+        Log.e("TAG", "PackageManagerService selectStubActivityInfoByIntent  插件ai:"+ai);
 
-//       代理的activity  ActivtiyInfo  宿主的
+//       插件的ActivtiyInfo转换成宿主的ActivtiyInfo
         if (ai != null) {
-           return selectProxyActivity(ai);
+            ActivityInfo activityInfo = selectProxyActivity(ai);
+            Log.e("TAG",
+                    "PackageManagerService selectStubActivityInfoByIntent 找到的activityInfo:" +activityInfo);
+            return activityInfo;
         }
 
         return null;

@@ -178,8 +178,9 @@ class StaticProcessList {
         return mOtherProcessNames;
     }
 
+    //已经运行的ActivityInfo
     private void addActivityInfo(ActivityInfo info) {
-        Log.i(TAG, "addActivityInfo: ");
+        Log.e(TAG, "addActivityInfo----------------------------: ");
         if (TextUtils.isEmpty(info.processName)) {
             info.processName = info.packageName;
         }

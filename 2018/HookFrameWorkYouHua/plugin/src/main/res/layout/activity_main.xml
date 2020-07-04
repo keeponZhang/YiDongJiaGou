@@ -7,6 +7,7 @@
     tools:context="com.dongnao.barry.plugin.MainActivity">
 
     <TextView
+        android:id="@+id/first"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="我是插件啊"
@@ -14,5 +15,17 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <Button
+        android:layout_marginTop="40dp"
+
+        android:onClick="jump"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="跳到插件secondActivity"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@id/first"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+         />
 
 </android.support.constraint.ConstraintLayout>

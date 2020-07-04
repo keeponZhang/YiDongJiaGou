@@ -63,6 +63,7 @@ class RunningProcessList {
 
     public String getStubProcessByTarget(ComponentInfo targetInfo) {
         android.util.Log.i(TAG, "getStubProcessByTarget: ");
+        //这里用items记录是否用了预注册的activity
         for (ProcessItem processItem : items.values()) {
             if (processItem.pkgs.contains(targetInfo.packageName) && TextUtils.equals(processItem.targetProcessName, targetInfo.processName)) {
                 return processItem.stubProcessName;

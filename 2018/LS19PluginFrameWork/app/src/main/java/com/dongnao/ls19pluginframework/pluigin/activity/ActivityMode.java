@@ -11,7 +11,7 @@ public class ActivityMode extends ProxyActivity {
     //    Standard模式是Android的默认启动模式Activity可以有多个实例，
     // 每次启动Activity，无论任务栈中是否已经有这个Activity的实例，
     //    系统都会创建一个新的Activity实例，以下是实验验证。
-    private static class StanderStub extends ActivityMode {
+    private static class StandardStub extends ActivityMode {
     }
 
     /**
@@ -40,62 +40,180 @@ public class ActivityMode extends ProxyActivity {
     private static class SingleInstanceStub extends ActivityMode {
     }
 
-    public static  class P01{
-        public static class Standard00 extends StanderStub {
-        }
+    //p1
+    public static class P00{
+        //---------------------------单例1-----------------------------------------
         public static class SingleInstance00 extends SingleInstanceStub {
         }
+
         public static class SingleTask00 extends SingleTaskStub {
         }
 
         public static class SingleTop00 extends SingleTopStub {
         }
-    }
-    public static  class P02{
-        public static class Standard00 extends StanderStub {
+        //---------------------------单例2-----------------------------------------
+        public static class SingleInstance01 extends SingleInstanceStub {
         }
+
+        public static class SingleTask01 extends SingleTaskStub {
+        }
+
+        public static class SingleTop01 extends SingleTopStub {
+        }
+        //---------------------------单例3-----------------------------------------
+        public static class SingleInstance02 extends SingleInstanceStub {
+        }
+
+        public static class SingleTask02 extends SingleTaskStub {
+        }
+
+        public static class SingleTop02 extends SingleTopStub {
+        }
+        //---------------------------单例4-----------------------------------------
+        public static class SingleInstance03 extends SingleInstanceStub {
+        }
+
+        public static class SingleTask03 extends SingleTaskStub {
+        }
+
+        public static class SingleTop03 extends SingleTopStub {
+        }
+        //---------------------------标准-----------------------------------------
+        public static class Standard00 extends StandardStub {
+        }
+    }
+
+
+
+    //p2
+    public static class P01{
+
         public static class SingleInstance00 extends SingleInstanceStub {
         }
+
         public static class SingleTask00 extends SingleTaskStub {
         }
 
         public static class SingleTop00 extends SingleTopStub {
         }
-    }
-    public static  class P03{
-        public static class Standard00 extends StanderStub {
+
+        public static class SingleInstance01 extends SingleInstanceStub {
         }
+
+        public static class SingleTask01 extends SingleTaskStub {
+        }
+
+        public static class SingleTop01 extends SingleTopStub {
+        }
+
+        public static class SingleInstance02 extends SingleInstanceStub {
+        }
+
+        public static class SingleTask02 extends SingleTaskStub {
+        }
+
+        public static class SingleTop02 extends SingleTopStub {
+        }
+
+        public static class SingleInstance03 extends SingleInstanceStub {
+        }
+
+        public static class SingleTask03 extends SingleTaskStub {
+        }
+
+        public static class SingleTop03 extends SingleTopStub {
+        }
+
+        public static class Standard00 extends StandardStub {
+        }
+    }
+
+    //p3
+    public static class P02{
+
         public static class SingleInstance00 extends SingleInstanceStub {
         }
+
         public static class SingleTask00 extends SingleTaskStub {
         }
 
         public static class SingleTop00 extends SingleTopStub {
         }
-    }
-    public static  class P04{
-        public static class Standard00 extends StanderStub {
+
+        public static class SingleInstance01 extends SingleInstanceStub {
         }
+
+        public static class SingleTask01 extends SingleTaskStub {
+        }
+
+        public static class SingleTop01 extends SingleTopStub {
+        }
+
+        public static class SingleInstance02 extends SingleInstanceStub {
+        }
+
+        public static class SingleTask02 extends SingleTaskStub {
+        }
+
+        public static class SingleTop02 extends SingleTopStub {
+        }
+
+        public static class SingleInstance03 extends SingleInstanceStub {
+        }
+
+        public static class SingleTask03 extends SingleTaskStub {
+        }
+
+        public static class SingleTop03 extends SingleTopStub {
+        }
+
+        public static class Standard00 extends StandardStub {
+        }
+    }
+
+
+    //p4
+    public static class P03{
+
         public static class SingleInstance00 extends SingleInstanceStub {
         }
+
         public static class SingleTask00 extends SingleTaskStub {
         }
 
         public static class SingleTop00 extends SingleTopStub {
         }
-    }
-    public static  class P05{
-        public static class Standard00 extends StanderStub {
-        }
-        public static class SingleInstance00 extends SingleInstanceStub {
-        }
-        public static class SingleTask00 extends SingleTaskStub {
+
+        public static class SingleInstance01 extends SingleInstanceStub {
         }
 
-        public static class SingleTop00 extends SingleTopStub {
+        public static class SingleTask01 extends SingleTaskStub {
+        }
+
+        public static class SingleTop01 extends SingleTopStub {
+        }
+
+        public static class SingleInstance02 extends SingleInstanceStub {
+        }
+
+        public static class SingleTask02 extends SingleTaskStub {
+        }
+
+        public static class SingleTop02 extends SingleTopStub {
+        }
+
+        public static class SingleInstance03 extends SingleInstanceStub {
+        }
+
+        public static class SingleTask03 extends SingleTaskStub {
+        }
+
+        public static class SingleTop03 extends SingleTopStub {
+        }
+
+        public static class Standard00 extends StandardStub {
         }
     }
-
 
 
 }
