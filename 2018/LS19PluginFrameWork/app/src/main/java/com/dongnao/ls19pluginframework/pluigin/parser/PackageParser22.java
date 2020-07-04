@@ -2,6 +2,7 @@ package com.dongnao.ls19pluginframework.pluigin.parser;
 
 import android.content.Context;
 import android.content.pm.PackageInfo;
+import android.util.Log;
 
 import com.dongnao.ls19pluginframework.pluigin.utils.reflect.MethodUtils;
 
@@ -25,6 +26,7 @@ public class PackageParser22 extends PackageParser21 {
         try {
             return super.generatePackageInfo(gids, flags, firstInstallTime, lastUpdateTime, grantedPermissions);
         } catch (Exception e) {
+            Log.e("TAG", "PackageParser22 generatePackageInfo Exception:" );
         }
         Method method = MethodUtils.getAccessibleMethod(sPackageParserClass, "generatePackageInfo",
                 mPackage.getClass(),

@@ -10,6 +10,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.ProviderInfo;
 import android.content.pm.ServiceInfo;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.dongnao.ls19pluginframework.pluigin.utils.reflect.ComponentNameComparator;
 import com.dongnao.ls19pluginframework.pluigin.utils.reflect.PluginDirHelper;
@@ -172,6 +173,7 @@ public class PluginPackageMap {
 
     public ApplicationInfo getApplicationInfo(int flags) throws Exception {
         ApplicationInfo applicationInfo = mParser.generateApplicationInfo(flags);
+        Log.e("TAG", "PluginPackageMap getApplicationInfo applicationInfo:"+applicationInfo );
         fixApplicationInfo(applicationInfo);
         if (TextUtils.isEmpty(applicationInfo.processName)) {
             applicationInfo.processName = applicationInfo.packageName;

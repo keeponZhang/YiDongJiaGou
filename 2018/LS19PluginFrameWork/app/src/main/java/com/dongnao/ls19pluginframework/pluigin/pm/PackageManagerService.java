@@ -78,6 +78,7 @@ public class PackageManagerService extends  IPluiginManager.Stub {
             }
         } catch (Exception e) {
         }
+        Log.e("TAG", "PackageManagerService onCreateInnner apkfiles:" +apkfiles);
         if (apkfiles != null && apkfiles.size() > 0) {
             for (File pluginFile : apkfiles) {
 //考虑一个问题  当前手机 版本

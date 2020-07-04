@@ -8,6 +8,7 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
 import android.os.IBinder;
 import android.os.RemoteException;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.dongnao.ls19pluginframework.pluigin.pm.IPluiginManager;
@@ -74,7 +75,8 @@ public class PluginManager implements ServiceConnection {
         return null;
     }
     public ApplicationInfo getApplicationInfo(ComponentName componentName, int flag) {
-
+        Log.e("TAG",
+                "PluginManager getApplicationInfo (mPluginManager=null):" +(mPluginManager==null));
         if (mPluginManager != null) {
             try {
                 return mPluginManager.getApplicationInfo(componentName.getPackageName(), flag);

@@ -10,6 +10,7 @@ import android.os.Message;
 import android.util.Log;
 
 import com.dongnao.ls19pluginframework.MyApplication;
+import com.dongnao.ls19pluginframework.pluigin.HookFactory;
 import com.dongnao.ls19pluginframework.pluigin.core.PluginCoreProcessManager;
 
 import java.lang.reflect.Field;
@@ -37,13 +38,13 @@ public class ActivityMH  implements Handler.Callback{
     @Override
     public boolean handleMessage(Message msg) {
 //LAUNCH_ACTIVITY ==100 即将要加载一个activity了
-        Log.e("TAG", "ActivityMH handleMessage:" + msg.what);
+        Log.e("TAG",
+                "ActivityMH handleMessage:" + msg.what+" mH:"+mH+ " processName="+ HookFactory.getProcessName(context));
         if (msg.what == 100) {
 //加工 --完  一定丢给系统  secondActivity  -hook->proxyActivity---hook->    secondeActivtiy   2
             handleLuachActivity(msg);
         }
 //做了真正的跳转
-        Log.d("TAG", "ActivityMH handleMessage mH:"+mH);
         mH.handleMessage(msg);
         return  true;
     }

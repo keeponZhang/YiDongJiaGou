@@ -6,5 +6,5 @@ import android.app.Application;
  * Created by Administrator on 2018/4/9.
  */
 
-public class MyApplication extends Application {
+public class PluginApplication extends Application {
 }

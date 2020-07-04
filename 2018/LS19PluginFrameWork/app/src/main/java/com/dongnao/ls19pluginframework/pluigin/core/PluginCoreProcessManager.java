@@ -48,6 +48,7 @@ public class PluginCoreProcessManager {
             Object defaultCompatibilityInfo = defaultCompatibilityInfoField.get(null);
 //        application  apk文件  PMS
             ApplicationInfo applicationInfo=PluginManager.getInstance().getApplicationInfo(component, 0);
+            Log.e("TAG", "PluginCoreProcessManager preLoadApk applicationInfo:"+applicationInfo );
 //            一个问题  传参 ApplicationInfo ai 一定是与插件相关    ApplicationInfo----》插件apk文件
 //LoadedApk getPackageInfoNoCheck(ApplicationInfo ai, CompatibilityInfo compatInfo)
             Object loadedApk=getPackageInfoNoCheckMethod.invoke(currentActivityThread, applicationInfo, defaultCompatibilityInfo);

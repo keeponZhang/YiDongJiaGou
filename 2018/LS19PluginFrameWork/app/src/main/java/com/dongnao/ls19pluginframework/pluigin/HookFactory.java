@@ -36,17 +36,20 @@ public class HookFactory {
 //    宿主   application  调用
     public final void installHook(Context context, ClassLoader classLoader) {
 //    hook类非常多  宿主   打电话 服务 不需要  hook  判断当前进程
-        if(!isPluginService(context)){
-//            宿主进程
-            installHook(new IActivityManagerHook(), classLoader);
-            installHook(new IPackageManagerHook(), classLoader);
-            installHook(new IActivityThreadHandlerHook(context), classLoader);
-            Log.e("TAG", "HookFactory installHook--------------:"+ getProcessName(context));
-        }else {
-//            插件进程
-            Log.e("TAG", "HookFactory installHook 插件进程:");
-
-        }
+//         if(!isPluginService(context)){
+// //            宿主进程
+//             installHook(new IActivityManagerHook(), classLoader);
+//             installHook(new IPackageManagerHook(), classLoader);
+//             installHook(new IActivityThreadHandlerHook(context), classLoader);
+//             Log.e("TAG", "HookFactory installHook--------------:"+ getProcessName(context));
+//         }else {
+// //            插件进程
+//             Log.e("TAG", "HookFactory installHook 插件进程(此时没有hook):"+getProcessName(context));
+//
+//         }
+        installHook(new IActivityManagerHook(), classLoader);
+        installHook(new IPackageManagerHook(), classLoader);
+        installHook(new IActivityThreadHandlerHook(context), classLoader);
     }
 
     public boolean isPluginService(Context context) {
@@ -56,7 +59,7 @@ public class HookFactory {
         }
         return false;
     }
-    private static String getProcessName(Context context) {
+    public static String getProcessName(Context context) {
 
         String processName = null;
         Class<?> ActivityThread = null;
