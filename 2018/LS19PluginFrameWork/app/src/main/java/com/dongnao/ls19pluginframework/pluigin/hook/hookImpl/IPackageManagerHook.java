@@ -1,5 +1,6 @@
 package com.dongnao.ls19pluginframework.pluigin.hook.hookImpl;
 
+import android.content.Context;
 import android.util.Log;
 
 import com.dongnao.ls19pluginframework.pluigin.hook.base.BaseClassHandle;
@@ -15,6 +16,10 @@ import java.lang.reflect.Proxy;
  */
 
 public class IPackageManagerHook  extends BaseProxyHook{
+    public IPackageManagerHook(Context context) {
+        super(context);
+    }
+
     @Override
     protected BaseClassHandle createHookHandle() {
         return new IPackageManagerClassHandle();

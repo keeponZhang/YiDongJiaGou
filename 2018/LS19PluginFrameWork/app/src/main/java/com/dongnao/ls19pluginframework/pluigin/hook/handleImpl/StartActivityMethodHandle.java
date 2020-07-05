@@ -7,6 +7,7 @@ import android.content.pm.ActivityInfo;
 import android.os.RemoteException;
 import android.util.Log;
 
+import com.dongnao.ls19pluginframework.pluigin.HookFactory;
 import com.dongnao.ls19pluginframework.pluigin.activity.ProxyActivity;
 import com.dongnao.ls19pluginframework.pluigin.core.PluginManager;
 import com.dongnao.ls19pluginframework.pluigin.hook.base.BaseMethodHandle;
@@ -33,7 +34,8 @@ public class StartActivityMethodHandle extends BaseMethodHandle {
     //invoke方法----》beforeInvoke---->afterInvoker
     @Override
     protected boolean beforeInvoke(Object receiver, Method method, Object[] args) {
-        Log.e("TAG", "StartActivityMethodHandleStartActivityMethodHandle beforeInvoke:");
+        Log.e("TAG", "StartActivityMethodHandle  beforeInvoke:"+
+                HookFactory.getProcessName(mHostContext));
         Intent intent=null;
         int index= findFirstIntentIndexInArgs(args);
         if (args != null && args.length > 1 && index >= 0) {

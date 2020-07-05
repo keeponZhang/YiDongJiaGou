@@ -17,6 +17,7 @@ import android.os.Binder;
 import android.os.RemoteException;
 import android.util.Log;
 
+import com.dongnao.ls19pluginframework.pluigin.HookFactory;
 import com.dongnao.ls19pluginframework.pluigin.am.ActivityManageService;
 import com.dongnao.ls19pluginframework.pluigin.parser.PackageParser;
 import com.dongnao.ls19pluginframework.pluigin.parser.PackageParserManager;
@@ -273,7 +274,8 @@ public class PackageManagerService extends  IPluiginManager.Stub {
     public ActivityInfo selectStubActivityInfoByIntent(Intent targetIntent) throws RemoteException {
         //        根据intent 插件  ActivityInfo     ---》mainActivity    ActivityInfo  包名 类名  启动模式   缓存表
         ActivityInfo ai= getActivityInfo(targetIntent.getComponent(), 0);
-        Log.e("TAG", "PackageManagerService selectStubActivityInfoByIntent  插件ai:"+ai);
+        Log.e("TAG", "PackageManagerService selectStubActivityInfoByIntent  插件ai:"+ai+"  "+
+                HookFactory.getProcessName(mContext));
 
 //       插件的ActivtiyInfo转换成宿主的ActivtiyInfo
         if (ai != null) {
