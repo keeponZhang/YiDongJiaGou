@@ -16,9 +16,7 @@ ext {
     buildToolsVersion = "25.0.2"
 }
 
-allprojects.each { p ->
-    p.buildDir "bin"
-}
+
 
 task clean(type: Delete) {
     delete rootProject.buildDir

@@ -19,7 +19,8 @@ public class ApkItem {
 
     boolean installing = false;
 
-    ApkItem(Context context, PackageInfo info, String path) {
+    ApkItem(Context context, PackageInfo
+            , String path) {
         PackageManager pm = context.getPackageManager();
         Resources resources = null;
         try {

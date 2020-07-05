@@ -159,7 +159,7 @@
             </intent-filter>
         </activity>
         <service android:name=".pluigin.core.PluginManagerService"
-            />
+            android:process="com.keepon.MyService"  />
         <!--=============================第一个房间=======================-->
         <activity
             android:name=".pluigin.activity.ActivityMode$P01$Standard00"

@@ -1,0 +1,53 @@
+简单有效使用小技巧:
+
+一、提升首次序列化/反序列化性能
+参数:
+1、缓存的Class
+2、如果类型为public，使用Modifier.PUBLIC
+3、是否只有field，没有getter/setter
+4、是否有@JSONType配置
+5、是否有@JSONField配置
+6、 是否有泛型信息
+SerializeConfig.getGlobalInstance().registerIfNotExists(Child.class);
+ParserConfig.getGlobalInstance().registerIfNotExists(Child.class);
+
+二、注解的使用
+
+FastJson在进行操作时，优先根据getter和setter的方法进行的，之后再依据PUBLIC Field进行。
+1、@JSONType
+    定义类的序列化
+    指定忽略某个字段: {@JSONType(ignores = {"c_name"})}
+
+2、@JSONField
+    定义属性序列化Key
+    作用在Fileld上
+        针对 json数据的 Key与JavaBean 中的属性不能匹配,可以使用@JSONField进行解释
+    作用在setter和getter方法上
+        getter表示 序列化后的Key; setter表示 反序列化对应的Key
+    作用在函数参数上
+        配合 @JSONCreator 使用
+
+3、@JSONCreator
+    Fastjson在反序列化时必须提供无参构造函数
+    如果定义的构造函数都需要参数则需要使用 @JSONCreator 标明提供此构造函数用于反序列化
+    同时由于构造函数中参数没有办法与类属性相匹配,所以可以配合 @JSONField 同时使用
+
+
+序列化优化:
+1、SerializeWriter
+    ThreadLocal
+    在SerializeWriter/JSONScanner中使用ThreadLocal保存一个byte[]/char[]，减少内存分配
+
+    提供线程内部的局部变量，这种变量在线程的生命周期内起作用。
+    在多线程环境下访问时能保证各个线程里的变量相对独立于其他线程内的变量
+    使用如:writeInt 实际上使用了 Long.getChars
+             不直接使用Long转String 为了将输出加入char[],而不是获得String
+
+2、IdentityHashMap 缓存
+    在ParserConfig/SerializeConfig中保存Class/Method/Field/Constructor，降低反射开销
+
+3、SymbolTable
+    SymbolTable 缓存常用的关键字,减少字符串对象创建
+    fastjson基于char操作 在需要将char转变为String的时候使用缓存 避免创建新的字符串对象
+    intern函数:
+        向虚拟机字符串常量池中添加常量。JDK1.7及1.7之后字符串常量池在堆中
