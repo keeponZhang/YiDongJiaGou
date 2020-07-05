@@ -77,6 +77,7 @@ public class PluginManager implements ServiceConnection {
     public ApplicationInfo getApplicationInfo(ComponentName componentName, int flag) {
         Log.e("TAG",
                 "PluginManager getApplicationInfo (mPluginManager=null):" +(mPluginManager==null));
+        //如果每个进程都hook是不行的，因为新开的进程没有绑定服务，这里会空
         if (mPluginManager != null) {
             try {
                 return mPluginManager.getApplicationInfo(componentName.getPackageName(), flag);
