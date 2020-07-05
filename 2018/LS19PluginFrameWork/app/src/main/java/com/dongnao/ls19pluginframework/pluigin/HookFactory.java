@@ -41,7 +41,8 @@ public class HookFactory {
             installHook(new IActivityManagerHook(context), classLoader);
             installHook(new IPackageManagerHook(context), classLoader);
             installHook(new IActivityThreadHandlerHook(context), classLoader);
-            Log.e("TAG", "HookFactory installHook--------------:"+ getProcessName(context));
+            Log.e("TAG",
+                    "HookFactory installHook(安装hook点)--------------:"+ getProcessName(context));
         }else {
 //            插件进程
             Log.e("TAG", "HookFactory installHook 插件进程(此时没有hook):"+getProcessName(context));
