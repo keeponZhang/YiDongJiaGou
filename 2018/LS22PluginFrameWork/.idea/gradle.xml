@@ -10,8 +10,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/Libraries" />
-            <option value="$PROJECT_DIR$/Libraries/DroidPlugin" />
+            <option value="$PROJECT_DIR$/DroidPluginLibrary" />
             <option value="$PROJECT_DIR$/TestPlugin" />
           </set>
         </option>

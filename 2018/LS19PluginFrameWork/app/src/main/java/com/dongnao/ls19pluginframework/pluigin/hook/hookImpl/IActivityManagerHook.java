@@ -29,7 +29,7 @@ public class IActivityManagerHook  extends BaseProxyHook {
     }
 
     @Override
-    public void onInit(ClassLoader classLoader) {
+    public void onInstall(ClassLoader classLoader) {
             Class<?> ActivityManagerNativecls = null;
             try {
                 ActivityManagerNativecls = Class.forName("android.app.ActivityManagerNative");

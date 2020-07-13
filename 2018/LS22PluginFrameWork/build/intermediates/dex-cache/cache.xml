@@ -3,84 +3,84 @@
 
     <item
         is-multidex="false"
-        jar="D:\test5\keeponGitgub\YiDongJiaGou\2018\LS22PluginFrameWork\TestPlugin\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.1.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="09c5e804bc67fc0580360043dff067df574a60d4">
-        <dex dex="D:\test5\keeponGitgub\YiDongJiaGou\2018\LS22PluginFrameWork\TestPlugin\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-23.1.1_57d529a67d2a25b728532678d69fe59e0d9d780b.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="D:\test5\keeponGitgub\YiDongJiaGou\2018\LS22PluginFrameWork\TestPlugin\build\intermediates\exploded-aar\DroidPlugin.Libraries\DroidPlugin\unspecified\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="0736fac39ccde956f6e336b24fc528fa626d4a4d">
-        <dex dex="D:\test5\keeponGitgub\YiDongJiaGou\2018\LS22PluginFrameWork\TestPlugin\build\intermediates\pre-dexed\debug\DroidPlugin.Libraries-DroidPlugin-unspecified_544a8a89fbaa5316e80111a17fb6eaf17716e506.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="D:\test5\keeponGitgub\YiDongJiaGou\2018\LS22PluginFrameWork\TestPlugin\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\libs\internal_impl-23.1.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
-        <dex dex="D:\test5\keeponGitgub\YiDongJiaGou\2018\LS22PluginFrameWork\TestPlugin\build\intermediates\pre-dexed\debug\internal_impl-23.1.1_e26ebe95b97efef9edb33c150d315ee82ca977cd.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="D:\AS2.3\sdk\extras\android\m2repository\com\android\support\support-annotations\23.1.1\support-annotations-23.1.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
-        <dex dex="D:\test5\keeponGitgub\YiDongJiaGou\2018\LS22PluginFrameWork\TestPlugin\build\intermediates\pre-dexed\debug\support-annotations-23.1.1_433306c7a5c5d9c60c86c9b369d85d1c23edb3f7.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="D:\test5\keeponGitgub\YiDongJiaGou\2018\LS22PluginFrameWork\TestPlugin\build\intermediates\exploded-aar\com.android.support\design\23.1.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="379471b2bd17d9737c050345c08e8c7d16589784">
-        <dex dex="D:\test5\keeponGitgub\YiDongJiaGou\2018\LS22PluginFrameWork\TestPlugin\build\intermediates\pre-dexed\debug\com.android.support-design-23.1.1_f012f7b918b9609ed6c93c09718694039fe0df48.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="D:\test5\keeponGitgub\YiDongJiaGou\2018\LS22PluginFrameWork\TestPlugin\build\intermediates\exploded-aar\com.android.support\gridlayout-v7\23.1.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="8465fad6dd05b954b82bd5ff22edd80992808561">
-        <dex dex="D:\test5\keeponGitgub\YiDongJiaGou\2018\LS22PluginFrameWork\TestPlugin\build\intermediates\pre-dexed\debug\com.android.support-gridlayout-v7-23.1.1_1217be6b54155ec131df391efff86ce517a605be.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="D:\test5\keeponGitgub\YiDongJiaGou\2018\LS22PluginFrameWork\TestPlugin\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
-        <dex dex="D:\test5\keeponGitgub\YiDongJiaGou\2018\LS22PluginFrameWork\TestPlugin\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-23.1.1_b68541df008ef731ea4f022823a1c84c6354e638.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="D:\test5\keeponGitgub\YiDongJiaGou\2018\LS22PluginFrameWork\TestPlugin\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\classes.jar"
+        jar="E:\keeponProject\github\keepon\YiDongJiaGou\2018\LS22PluginFrameWork\TestPlugin\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
-        <dex dex="D:\test5\keeponGitgub\YiDongJiaGou\2018\LS22PluginFrameWork\TestPlugin\build\intermediates\pre-dexed\debug\com.android.support-support-v4-23.1.1_8440fc74db8ff769ff39a1eaaafc315874ba2fbf.jar" />
+        <dex dex="E:\keeponProject\github\keepon\YiDongJiaGou\2018\LS22PluginFrameWork\TestPlugin\build\intermediates\pre-dexed\debug\com.android.support-support-v4-23.1.1_b8b5cdb122ce65ed57d79900ffe5b7e96070bab9.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="D:\test5\keeponGitgub\YiDongJiaGou\2018\LS22PluginFrameWork\TestPlugin\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.1.1\jars\classes.jar"
+        jar="E:\developSoftWare\androidSdk\extras\android\m2repository\com\android\support\support-annotations\23.1.1\support-annotations-23.1.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
+        <dex dex="E:\keeponProject\github\keepon\YiDongJiaGou\2018\LS22PluginFrameWork\TestPlugin\build\intermediates\pre-dexed\debug\support-annotations-23.1.1_bb548553eda2569431ccbb28d43417a962c3a7e6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\keeponProject\github\keepon\YiDongJiaGou\2018\LS22PluginFrameWork\TestPlugin\build\intermediates\exploded-aar\com.android.support\gridlayout-v7\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8465fad6dd05b954b82bd5ff22edd80992808561">
+        <dex dex="E:\keeponProject\github\keepon\YiDongJiaGou\2018\LS22PluginFrameWork\TestPlugin\build\intermediates\pre-dexed\debug\com.android.support-gridlayout-v7-23.1.1_acc40655fa8a3654fe235bb23a40c15c71a78330.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\keeponProject\github\keepon\YiDongJiaGou\2018\LS22PluginFrameWork\TestPlugin\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\libs\internal_impl-23.1.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
+        <dex dex="E:\keeponProject\github\keepon\YiDongJiaGou\2018\LS22PluginFrameWork\TestPlugin\build\intermediates\pre-dexed\debug\internal_impl-23.1.1_f74f93d53df53374037bf71b5a6947cb0dbcdedc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\keeponProject\github\keepon\YiDongJiaGou\2018\LS22PluginFrameWork\TestPlugin\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="09c5e804bc67fc0580360043dff067df574a60d4">
+        <dex dex="E:\keeponProject\github\keepon\YiDongJiaGou\2018\LS22PluginFrameWork\TestPlugin\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-23.1.1_1e461024ece4f000b6aa1d73f6f1ed15064f64be.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\keeponProject\github\keepon\YiDongJiaGou\2018\LS22PluginFrameWork\TestPlugin\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.1.1\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="5e412e954a24c5310a459c09870e4e2081aceb03">
-        <dex dex="D:\test5\keeponGitgub\YiDongJiaGou\2018\LS22PluginFrameWork\TestPlugin\build\intermediates\pre-dexed\debug\com.android.support-cardview-v7-23.1.1_f36b240aeddf2e03bf2bb8df8070decc0e85bc14.jar" />
+        <dex dex="E:\keeponProject\github\keepon\YiDongJiaGou\2018\LS22PluginFrameWork\TestPlugin\build\intermediates\pre-dexed\debug\com.android.support-cardview-v7-23.1.1_2aca638e98caa11e83fcc23b9b337409b958d330.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\keeponProject\github\keepon\YiDongJiaGou\2018\LS22PluginFrameWork\TestPlugin\build\intermediates\exploded-aar\DroidPlugin\DroidPluginLibrary\unspecified\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="fe6381152c2b2d182cb24f69afefeb7757374276">
+        <dex dex="E:\keeponProject\github\keepon\YiDongJiaGou\2018\LS22PluginFrameWork\TestPlugin\build\intermediates\pre-dexed\debug\DroidPlugin-DroidPluginLibrary-unspecified_cff58e642b991aa4574a223f5fe6c644351a19a6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\keeponProject\github\keepon\YiDongJiaGou\2018\LS22PluginFrameWork\TestPlugin\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
+        <dex dex="E:\keeponProject\github\keepon\YiDongJiaGou\2018\LS22PluginFrameWork\TestPlugin\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-23.1.1_1559abaab3cb409542b3cfd344a6acfdc375a00a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\keeponProject\github\keepon\YiDongJiaGou\2018\LS22PluginFrameWork\TestPlugin\build\intermediates\exploded-aar\com.android.support\design\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="379471b2bd17d9737c050345c08e8c7d16589784">
+        <dex dex="E:\keeponProject\github\keepon\YiDongJiaGou\2018\LS22PluginFrameWork\TestPlugin\build\intermediates\pre-dexed\debug\com.android.support-design-23.1.1_8171c0c63883448747233dc9289a53113533e314.jar" />
     </item>
 
 </items>

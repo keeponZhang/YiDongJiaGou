@@ -1,16 +1,12 @@
 package com.dongnao.ls19pluginframework.pluigin;
 
 import android.content.Context;
-import android.os.Environment;
-import android.util.Log;
 
-import com.dongnao.ls19pluginframework.pluigin.core.PluginManager;
 import com.dongnao.ls19pluginframework.pluigin.hook.base.BaseHook;
 import com.dongnao.ls19pluginframework.pluigin.hook.hookImpl.IActivityManagerHook;
 import com.dongnao.ls19pluginframework.pluigin.hook.hookImpl.IActivityThreadHandlerHook;
 import com.dongnao.ls19pluginframework.pluigin.hook.hookImpl.IPackageManagerHook;
 
-import java.io.File;
 import java.lang.reflect.Method;
 
 /**
@@ -30,7 +26,7 @@ public class HookFactory {
     //这里用BaseHook当方法参数，实际上调用的是具体类的onInit方法
     private void installHook(BaseHook baseHook, ClassLoader classLoader) {
         try {
-            baseHook.onInit(classLoader);
+            baseHook.onInstall(classLoader);
         } catch (Exception e) {
 
         }

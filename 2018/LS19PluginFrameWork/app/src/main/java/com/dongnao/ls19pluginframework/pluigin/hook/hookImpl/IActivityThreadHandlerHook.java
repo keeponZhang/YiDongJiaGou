@@ -29,7 +29,7 @@ public class IActivityThreadHandlerHook extends   BaseHook {
     }
 
     @Override
-    public void onInit(ClassLoader classLoader) {
+    public void onInstall(ClassLoader classLoader) {
         try {
             Class<?> forName = Class.forName("android.app.ActivityThread");
             Field currentActivityThreadField = forName.getDeclaredField("sCurrentActivityThread");

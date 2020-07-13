@@ -33,5 +33,5 @@ public abstract class BaseHook  {
     protected abstract BaseClassHandle createHookHandle();
 
     //一般是这里hook，所以需要classLoader
-    public abstract void onInit(ClassLoader classLoader);
+    public abstract void onInstall(ClassLoader classLoader);
 }

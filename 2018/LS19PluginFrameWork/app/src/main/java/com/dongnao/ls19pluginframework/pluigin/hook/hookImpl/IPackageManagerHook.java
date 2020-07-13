@@ -26,7 +26,7 @@ public class IPackageManagerHook  extends BaseProxyHook{
     }
 
     @Override
-    public void onInit(ClassLoader classLoader) {
+    public void onInstall(ClassLoader classLoader) {
 
         // 这一步是因为 initializeJavaContextClassLoader 这个方法内部无意中检查了这个包是否在系统安装
         // 如果没有安装, 直接抛出异常, 这里需要临时Hook掉 PMS, 绕过这个检查.
