@@ -3,6 +3,7 @@ package com.example.testprocessor;
 import com.google.auto.service.AutoService;
 import com.squareup.javapoet.JavaFile;
 import com.squareup.javapoet.MethodSpec;
+import com.squareup.javapoet.ParameterSpec;
 import com.squareup.javapoet.TypeSpec;
 
 import java.io.IOException;
@@ -56,6 +57,7 @@ public class TestProcessor extends AbstractProcessor {
             MethodSpec main = MethodSpec.methodBuilder("main")
                     .addModifiers(Modifier.PUBLIC, Modifier.STATIC)
                     .returns(void.class)
+            // return addParameter(ParameterSpec.builder(type, name, modifiers).build());
                     .addParameter(String[].class, "args")
                     .addStatement("$T.out.println($S)", System.class, "Hello, JavaPoet!")
                     .build();
