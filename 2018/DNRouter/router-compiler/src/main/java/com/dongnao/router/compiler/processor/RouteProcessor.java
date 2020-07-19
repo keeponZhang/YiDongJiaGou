@@ -145,6 +145,7 @@ public class RouteProcessor extends AbstractProcessor {
     }
 
     private void parseRoutes(Set<? extends Element> routeElements) throws IOException {
+        //elementUtils是节点工具，通过传全类名
         //支持配置路由类的类型
         TypeElement activity = elementUtils.getTypeElement(Consts.ACTIVITY);
         //节点自描述 Mirror
@@ -166,6 +167,7 @@ public class RouteProcessor extends AbstractProcessor {
             log.i("Route Class: " + tm.toString());
             Route route = element.getAnnotation(Route.class);
             //是否是 Activity 使用了Route注解
+            //typeUtils类型工具，这里通过类型工具判断
             if (typeUtils.isSubtype(tm, type_Activity)) {
                 routeMeta = new RouteMeta(RouteMeta.Type.ACTIVITY, route, element);
             } else if (typeUtils.isSubtype(tm, type_IService)) {
